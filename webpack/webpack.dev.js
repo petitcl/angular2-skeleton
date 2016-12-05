@@ -18,8 +18,19 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ loader: 'raw', test: /\.(css|html)$/ },
-			{ exclude: /node_modules/, loader: 'ts', test: /\.ts$/ }
+			{
+				loader: 'raw',
+				test: /\.(css|html)$/
+			},
+			{
+				loader: 'ts',
+				test: /\.ts$/,
+				exclude: /node_modules/
+			},
+			{
+				test: /\.scss$/,
+				loaders: ["style-loader", "css-loader", "sass-loader"]
+			}
 		]
 	},
 	output: {
