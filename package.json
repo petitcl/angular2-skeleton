@@ -1,7 +1,10 @@
 {
   "name": "angular-quickstart",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack --config webpack/webpack.dev.js",
+    "watch": "webpack --config webpack/webpack.dev.js --watch"
+  },
   "licenses": [
     {
       "type": "MIT",
@@ -22,12 +25,16 @@
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "systemjs": "0.19.39",
+    "es6-shim": "^0.35.1",
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.45",
-    "typescript": "^2.0.3"
+    "raw-loader": "^0.5.1",
+    "ts-loader": "^1.2.2",
+    "typescript": "^2.0.3",
+    "html-webpack-plugin": "^2.24.1",
+    "webpack": "^1.13.3"
   }
 }
