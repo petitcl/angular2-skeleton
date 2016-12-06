@@ -2,8 +2,8 @@
   "name": "angular-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack --config webpack/webpack.dev.js",
-    "watch": "webpack --config webpack/webpack.dev.js --watch"
+    "start": "webpack",
+    "watch": "webpack --watch"
   },
   "licenses": [
     {
