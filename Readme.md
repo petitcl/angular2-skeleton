@@ -18,4 +18,10 @@
 * :red_circle: inline HTML partials
 * :red_circle: css livereload
 * :red_circle: js livereload
-* :red_circle:imagemin if not dev
+* :red_circle: imagemin if not dev
+* :red_circle: add bootstrapp
+* :red_circle: add font awesome
+* :red_circle: add angular i18n
+* :red_circle: add dashboard page
+* :red_circle: add components directory
+
