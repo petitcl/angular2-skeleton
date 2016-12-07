@@ -1,5 +1,12 @@
 {
   "rules": {
+    "no-any": false,
+    "no-null-keyword ": false,
+    "cyclomatic-complexity": [true, 20],
+    "trailing-comma": [
+      true,
+      {"multiline": "never", "singleline": "never"}
+    ],
     "no-console": [
       true,
       "log",
