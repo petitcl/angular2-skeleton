@@ -11,8 +11,8 @@
 * :red_circle: fonts
 * :red_circle: misc files
 * :red_circle: watch
-* :red_circle: js/ts sourcemaps in dev only
-* :red_circle: scss sourcemaps in dev only
+* :white_check_mark: js/ts sourcemaps in dev only
+* :white_check_mark: scss sourcemaps in dev only
 * :red_circle: release task 
 * :red_circle: preprocess files (environment specific)
 * :red_circle: inline HTML partials
