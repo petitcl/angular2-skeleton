@@ -1,5 +1,5 @@
 #Features TODO list
-* :red_circle: uglify css if not dev
+* :white_check_mark: uglify css if not dev
 * :white_check_mark: uglify js if not dev
 * :red_circle: custom lodash build
 * :red_circle: inject environment specific conf (frep)
