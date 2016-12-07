@@ -1,20 +1,12 @@
 /*BOOSTRAP CONFIGURATION*/
 
 // Override Bootstrap variables
-//@import 'components/bootstrap/variables';
+@import 'components/bootstrap/variables';
 // Bootstrap variables
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
 // Bootstrap
-//@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // Override Bootstrap
-//@import 'components/bootstrap/bootstrap';
+@import 'components/bootstrap/bootstrap';
 
-h1 {
-	color: red;
-
-	span {
-		text-decoration: underline;
-	}
-}
