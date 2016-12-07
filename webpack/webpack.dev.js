@@ -14,10 +14,16 @@ module.exports = function (conf) {
 		debug: true,
 		devtool: 'source-map',
 		entry: {
-			app: [ path.resolve(rootDir, app, 'main') ],
-			vendor: [ path.resolve(rootDir, app, 'vendor') ]
+			app: [path.resolve(rootDir, app, 'main')],
+			vendor: [path.resolve(rootDir, app, 'vendor')]
 		},
 		module: {
+			preLoaders: [
+				{
+					test: /\.ts$/,
+					loader: 'tslint-loader'
+				}
+			],
 			loaders: [
 				{
 					loader: 'raw',
@@ -55,7 +61,7 @@ module.exports = function (conf) {
 			})
 		],
 		resolve: {
-			extensions: [ '', '.js', '.ts' ]
+			extensions: ['', '.js', '.ts']
 		}
 	};
 };

@@ -5,7 +5,7 @@
 * :red_circle: custom lodash build
 * :red_circle: inject environment specific conf (frep)
 * :red_circle: lint
-* :red_circle: tslint
+* :white_check_mark: tslint
 * :red_circle: unit tests
 * :red_circle: git commit hook
 * :red_circle: images

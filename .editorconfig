@@ -5,19 +5,23 @@ root = true
 
 [*.js]
 indent_style = tab
-indent_size = 2
+indent_size = 4
+tab_width = 4
 
 [*.ts]
 indent_style = tab
-indent_size = 2
+indent_size = 4
+tab_width = 4
 
 [*.scss]
 indent_style = tab
-indent_size = 2
+indent_size = 4
+tab_width = 4
 
 [*.html]
 indent_style = tab
-indent_size = 2
+indent_size = 4
+tab_width = 4
 
 [*.json]
 indent_style = space

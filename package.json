@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "tslint": "tslint 'app/**/*.ts'",
+    "lint": "npm run tslint"
   },
   "licenses": [
     {
@@ -41,6 +43,8 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "ts-loader": "^1.2.2",
+    "tslint": "^4.0.2",
+    "tslint-loader": "^3.3.0",
     "typescript": "^2.0.3",
     "webpack": "^1.13.3"
   }
