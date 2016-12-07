@@ -1,21 +1,21 @@
-features
-*uglify css if not dev
-*uglify js if not dev
-*custom lodash build
-*inject environment specific conf (frep)
-*lint
-*tslint
-*unit tests
-*git commit hook
-*images
-*fonts
-*misc files
-*watch
-*js/ts sourcemaps in dev only
-*scss sourcemaps in dev only
-*release 
-*preprocess files (environment specific)
-*inline HTML partials
-*css livereload
-*js livereload
-*imagemin if not dev
+#Features TODO list
+* :red_circle: uglify css if not dev
+* :red_circle: uglify js if not dev
+* :red_circle: custom lodash build
+* :red_circle: inject environment specific conf (frep)
+* :red_circle: lint
+* :red_circle: tslint
+* :red_circle: unit tests
+* :red_circle: git commit hook
+* :red_circle: images
+* :red_circle: fonts
+* :red_circle: misc files
+* :red_circle: watch
+* :red_circle: js/ts sourcemaps in dev only
+* :red_circle: scss sourcemaps in dev only
+* :red_circle: release task 
+* :red_circle: preprocess files (environment specific)
+* :red_circle: inline HTML partials
+* :red_circle: css livereload
+* :red_circle: js livereload
+* :red_circle:imagemin if not dev
