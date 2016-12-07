@@ -19,7 +19,9 @@
 * :red_circle: css livereload
 * :red_circle: js livereload
 * :red_circle: imagemin if not dev
-* :red_circle: add bootstrapp
+* :white_check_mark: add bootstrap
+* :red_circle: add typings
+* :red_circle: add mixgen
 * :red_circle: add font awesome
 * :red_circle: add angular i18n
 * :red_circle: add dashboard page

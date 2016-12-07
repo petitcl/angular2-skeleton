@@ -1,4 +1,4 @@
-require("./app.scss");
+require("./app-module.scss");
 
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";

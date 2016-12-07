@@ -29,6 +29,10 @@ module.exports = function (conf) {
 				{
 					test: /\.scss$/,
 					loaders: ["style-loader", "css-loader?minimize", "sass-loader"]
+				},
+				{
+					test: /\.(eot|svg|ttf|woff|woff2)$/,
+					loader: 'file'
 				}
 			]
 		},
