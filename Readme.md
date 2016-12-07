@@ -4,7 +4,6 @@
 * :red_circle: uglify html if not dev
 * :red_circle: custom lodash build
 * :red_circle: inject environment specific conf (frep)
-* :red_circle: lint
 * :white_check_mark: tslint
 * :red_circle: unit tests
 * :red_circle: git commit hook
@@ -22,7 +21,7 @@
 * :red_circle: imagemin if not dev
 * :white_check_mark: add bootstrap
 * :white_check_mark: add typings
-* :red_circle: add mixgen
+* :white_check_mark: add mixgen
 * :red_circle: add font awesome
 * :red_circle: add angular i18n
 * :red_circle: add dashboard page

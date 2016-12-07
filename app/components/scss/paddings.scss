@@ -1,0 +1,22 @@
+$padding-xs: 10px;
+$padding-sm: 20px;
+$padding-md: 25px;
+$padding-lg: 40px;
+
+$grid-breakpoints: (
+	// Extra small screen / phone
+	xs: 0,
+	// Small screen / phone
+	sm: 768px,
+	// Medium screen / tablet
+	md: 992px,
+	// Large screen / desktop
+	lg: 1200px
+);
+
+@include generate-paddings(
+	$sizes: ('none': 0, 'xs': $padding-xs, 'sm': $padding-sm, 'md': $padding-md, 'lg': $padding-lg),
+	$breakpoints: $grid-breakpoints
+);
+
+

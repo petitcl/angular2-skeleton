@@ -1,0 +1,46 @@
+$white: #fff;
+$black: #000;
+
+$grey1: #efefef;
+$grey2: #e9e9e9;
+$grey3: #cdcdcd;
+$grey4: #737373;
+$grey5: #666666;
+$grey6: #464646;
+$grey7: #252525;
+$grey8: #9a9a9a;
+$grey9: #c3c3c3;
+$grey10: #dbdbdb;
+
+
+$red1: #d51114;
+$red2: #f20a32;
+
+$green1: #00c988;
+$green2: #069f06;
+
+$yellow1: #ffe200;
+$yellow2: #f8c129;
+
+@include generate-color(('white': $white));
+@include generate-color(('black': $black));
+
+@include generate-color(('grey1': $grey1));
+@include generate-color(('grey2': $grey2));
+@include generate-color(('grey3': $grey3));
+@include generate-color(('grey4': $grey4));
+@include generate-color(('grey5': $grey5));
+@include generate-color(('grey6': $grey6));
+@include generate-color(('grey7': $grey7));
+@include generate-color(('grey8': $grey8));
+@include generate-color(('grey9': $grey9));
+@include generate-color(('grey10': $grey10));
+
+@include generate-color(('red1': $red1));
+@include generate-color(('red2': $red2));
+
+@include generate-color(('green1': $green1));
+@include generate-color(('green2': $green2));
+
+@include generate-color(('yellow1': $yellow1));
+@include generate-color(('yellow2': $yellow2));

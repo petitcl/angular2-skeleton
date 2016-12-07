@@ -1,12 +1,29 @@
-/*BOOSTRAP CONFIGURATION*/
+// Mixins
+@import '~mixgen/assets/sass/variables';
+@import '~mixgen/assets/sass/borders';
+@import '~mixgen/assets/sass/colors';
+@import '~mixgen/assets/sass/margins';
+@import '~mixgen/assets/sass/paddings';
+@import '~mixgen/assets/sass/text-align';
+@import '~mixgen/assets/sass/texts';
+@import '~mixgen/assets/sass/lineheights';
+@import '~mixgen/assets/sass/verticals';
+
+
+//Components
+@import 'components/scss/colors';
+@import 'components/scss/borders';
+@import 'components/scss/margins';
+@import 'components/scss/paddings';
+
 
 // Override Bootstrap variables
-@import 'components/bootstrap/variables';
+@import 'components/scss/bootstrap/variables';
 // Bootstrap variables
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
 // Bootstrap
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // Override Bootstrap
-@import 'components/bootstrap/bootstrap';
+@import 'components/scss/bootstrap/bootstrap';
 
