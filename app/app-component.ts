@@ -2,12 +2,7 @@ import {Component} from "@angular/core";
 
 @Component({
 	selector: 'my-app',
-	template: 
-		`
-			<div class="container">
-				<h1>My First <span>application</span></h1>
-			</div>
-		`
+	template: require('./app.html')
 })
 export class AppComponent {
 	constructor() {

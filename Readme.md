@@ -1,6 +1,7 @@
 #Features TODO list
 * :white_check_mark: uglify css if not dev
 * :white_check_mark: uglify js if not dev
+* :red_circle: uglify html if not dev
 * :red_circle: custom lodash build
 * :red_circle: inject environment specific conf (frep)
 * :red_circle: lint
@@ -15,7 +16,7 @@
 * :white_check_mark: scss sourcemaps in dev only
 * :red_circle: release task 
 * :red_circle: preprocess files (environment specific)
-* :red_circle: inline HTML partials
+* :white_check_mark: inline HTML partials
 * :red_circle: css livereload
 * :red_circle: js livereload
 * :red_circle: imagemin if not dev
