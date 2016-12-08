@@ -18,6 +18,7 @@
 * :white_check_mark: inline HTML partials
 * :red_circle: css livereload
 * :red_circle: js livereload
+* :red_circle: js hot reload
 * :red_circle: imagemin if not dev
 * :white_check_mark: add bootstrap
 * :white_check_mark: add typings
