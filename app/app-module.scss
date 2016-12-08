@@ -9,6 +9,9 @@
 @import '~mixgen/assets/sass/lineheights';
 @import '~mixgen/assets/sass/verticals';
 
+// Font Awesome
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
 
 //Components
 @import 'components/scss/colors';

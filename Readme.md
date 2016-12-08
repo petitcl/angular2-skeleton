@@ -23,7 +23,7 @@
 * :white_check_mark: add bootstrap
 * :white_check_mark: add typings
 * :white_check_mark: add mixgen
-* :red_circle: add font awesome
+* :white_check_mark: add font awesome
 * :red_circle: add angular i18n
 * :red_circle: add dashboard page
 * :red_circle: add components directory

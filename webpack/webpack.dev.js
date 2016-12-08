@@ -1,10 +1,11 @@
 'use strict';
 
 module.exports = function (conf) {
-	const HtmlWebpack = require('html-webpack-plugin');
+	const HtmlWebpackPlugin = require('html-webpack-plugin');
 	const path = require('path');
 	const webpack = require('webpack');
-	const ChunkWebpack = webpack.optimize.CommonsChunkPlugin;
+	const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+	const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
@@ -15,7 +16,8 @@ module.exports = function (conf) {
 		devtool: 'source-map',
 		entry: {
 			app: [path.resolve(rootDir, app, 'main')],
-			vendor: [path.resolve(rootDir, app, 'vendor')]
+			vendor: [path.resolve(rootDir, app, 'vendor')],
+			css: [ path.resolve(rootDir, app, 'app-module.scss')]
 		},
 		module: {
 			preLoaders: [
@@ -36,11 +38,31 @@ module.exports = function (conf) {
 				},
 				{
 					test: /\.scss$/,
-					loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
+					loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap')
 				},
 				{
-					test: /\.(eot|svg|ttf|woff|woff2)$/,
-					loader: 'file'
+					test: /\.(png|jpe?g|gif|ico)$/,
+					loader: 'file-loader?name=assets/[name].[hash].[ext]'
+				},
+				{
+					test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+					loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+				},
+				{
+					test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+					loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+				},
+				{
+					test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+					loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
+				},
+				{
+					test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+					loader: 'file-loader'
+				},
+				{
+					test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+					loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
 				}
 			]
 		},
@@ -49,15 +71,18 @@ module.exports = function (conf) {
 			path: path.resolve(rootDir, dist)
 		},
 		plugins: [
-			new ChunkWebpack({
+			new CommonsChunkPlugin({
 				filename: 'vendor.bundle.js',
 				minChunks: Infinity,
 				name: 'vendor'
 			}),
-			new HtmlWebpack({
+			new HtmlWebpackPlugin({
 				filename: 'index.html',
 				inject: 'body',
 				template: path.resolve(rootDir, app, 'index.html')
+			}),
+			new ExtractTextPlugin("styles.css", {
+				allChunks: true
 			})
 		],
 		resolve: {
