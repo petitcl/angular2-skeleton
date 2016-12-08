@@ -1,12 +1,7 @@
 $border-xs: 1px;
 $border-sm: 2px;
 
-@include generate-borders(($grey1: 'grey1'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-@include generate-borders(('grey2': $grey1), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-
+@include generate-borders(('grey1': $grey1), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
 @include generate-borders(('grey3': $grey3), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
 @include generate-borders(('black': $black), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
 @include generate-borders(('green1': $green1), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-//@include generate-borders(($grey3: 'grey3'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-//@include generate-borders(($black: 'black'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-//@include generate-borders(($green1: 'green1'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
