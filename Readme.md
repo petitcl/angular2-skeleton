@@ -4,7 +4,7 @@
 * :red_circle: imagemin if not dev
 * :red_circle: uglify html if not dev
 * :red_circle: custom lodash build
-* :red_circle: inject environment specific conf (frep)
+* :white_check_mark: inject environment specific conf
 * :white_check_mark: tslint
 * :red_circle: images
 * :red_circle: fonts

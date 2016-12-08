@@ -1,7 +1,8 @@
-module.exports = function (conf) {
+module.exports = function (env, conf) {
 	const HtmlWebpackPlugin = require('html-webpack-plugin');
 	const path = require('path');
 	const webpack = require('webpack');
+	const DefinePlugin = require('webpack/lib/DefinePlugin');
 	const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 	const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -78,6 +79,9 @@ module.exports = function (conf) {
 			}),
 			new ExtractTextPlugin("styles.css", {
 				allChunks: true
+			}),
+			new DefinePlugin({
+				'process.env': JSON.stringify(conf.env || {})
 			})
 		],
 		resolve: {
