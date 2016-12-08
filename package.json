@@ -38,6 +38,7 @@
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.45",
     "@types/webpack-env": "^1.12.1",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "deep-extend": "^0.4.1",
     "extract-text-webpack-plugin": "^1.0.1",

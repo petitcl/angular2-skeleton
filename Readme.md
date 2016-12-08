@@ -6,9 +6,9 @@
 * :red_circle: custom lodash build
 * :white_check_mark: inject environment specific conf
 * :white_check_mark: tslint
-* :red_circle: images
-* :red_circle: fonts
-* :red_circle: misc files
+* :white_check_mark: images
+* :white_check_mark: fonts
+* :white_check_mark: misc files
 * :white_check_mark: js/ts sourcemaps in dev only
 * :white_check_mark: scss sourcemaps in dev only
 * :red_circle: preprocess files (environment specific)
@@ -21,6 +21,7 @@
 * :white_check_mark: add typings
 * :white_check_mark: add mixgen
 * :white_check_mark: add font awesome
+* :red_circle: base webpack config file
 * :red_circle: unit tests
 * :red_circle: release task 
 * :red_circle: git commit hook

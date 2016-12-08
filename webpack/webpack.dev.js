@@ -5,14 +5,14 @@ module.exports = function (env, conf) {
 	const path = require('path');
 	const webpack = require('webpack');
 	const DefinePlugin = require('webpack/lib/DefinePlugin');
-	const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+	const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+	const CopyWebpackPlugin = require('copy-webpack-plugin');
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
 	const dist = 'dist';
 
-	console.log(conf);
 	return {
 		debug: true,
 		devtool: 'source-map',
@@ -43,8 +43,8 @@ module.exports = function (env, conf) {
 					loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap')
 				},
 				{
-					test: /\.(png|jpe?g|gif|ico)$/,
-					loader: 'file-loader?name=assets/[name].[hash].[ext]'
+					test: /\.(png|jpe?g|gif|ico|svg)$/,
+					loader: 'file-loader?name=[name].[hash].[ext]'
 				},
 				{
 					test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
@@ -88,7 +88,10 @@ module.exports = function (env, conf) {
 			}),
 			new DefinePlugin({
 				'process.env': JSON.stringify(conf.env || {})
-			})
+			}),
+			new CopyWebpackPlugin([
+				{ context: app, from: "**/*.+(png|jpeg|jpg|gif|ico|svg)" }
+			])
 		],
 		resolve: {
 			extensions: ['', '.js', '.ts']
