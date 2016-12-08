@@ -27,4 +27,7 @@
 * :red_circle: add angular i18n
 * :red_circle: add dashboard page
 * :red_circle: add components directory
-
+* :red_circle: Store service
+* :red_circle: Session service
+* :red_circle: Authorization HTTP interceptor 
+* :red_circle: Cachify Service
