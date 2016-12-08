@@ -1,26 +1,12 @@
 $border-xs: 1px;
 $border-sm: 2px;
 
-@mixin generate-borders-color(
-	$color,
-	$color-name,
-	$values: ('xs': $border-xs-size, 'sm': $border-sm-size, 'md': $border-md-size, 'lg': $border-lg-size),
-	$type: solid,
-	$breakpoints: $grid-breakpoints
-) {
-	@each $key, $value in $values {
-		//We generate without sides
-		@include css-generator('border-'+$color-name, border, (join(join(($key: $value), $type), $color, comma)), $breakpoints);
-		//We generate for each sides
-		@each $side in top, right, bottom, left {
-			@include css-generator(unquote('border-'+ $color-name + '-' + $side), border-#{$side}, (join(join(($key: $value), $type), $color, comma)), $breakpoints);
-		}
-	}
-}
+@include generate-borders(($grey1: 'grey1'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
+@include generate-borders(('grey2': $grey1), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
 
-
-@include generate-borders($grey1, ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-@include generate-borders-color($grey1, 'grey1', ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-@include generate-borders-color($grey3, 'grey3', ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-@include generate-borders-color($black, 'black', ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
-@include generate-borders-color($green1, 'green1', ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
+@include generate-borders(('grey3': $grey3), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
+@include generate-borders(('black': $black), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
+@include generate-borders(('green1': $green1), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
+//@include generate-borders(($grey3: 'grey3'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
+//@include generate-borders(($black: 'black'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
+//@include generate-borders(($green1: 'green1'), ('none': 0, 'xs': $border-xs, 'sm': $border-sm));
