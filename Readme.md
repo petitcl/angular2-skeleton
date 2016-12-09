@@ -1,7 +1,7 @@
 #Features TODO list
 * :white_check_mark: uglify css if not dev
 * :white_check_mark: uglify js if not dev
-* :red_circle: imagemin if not dev
+* :white_check_mark: imagemin if not dev
 * :red_circle: uglify html if not dev
 * :red_circle: custom lodash build
 * :white_check_mark: inject environment specific conf

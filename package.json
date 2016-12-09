@@ -44,6 +44,7 @@
     "deep-extend": "^0.4.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
+    "imagemin-webpack-plugin": "^1.4.4",
     "node-sass": "^3.13.0",
     "progress-bar-webpack-plugin": "^1.9.0",
     "raw-loader": "^0.5.1",
