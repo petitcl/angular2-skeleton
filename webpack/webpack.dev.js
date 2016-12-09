@@ -100,6 +100,9 @@ module.exports = function (env, conf) {
 		],
 		resolve: {
 			extensions: ['', '.js', '.ts']
+		},
+		'ts': {
+			logLevel: 'warn'
 		}
 	};
 };

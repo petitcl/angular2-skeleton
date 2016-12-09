@@ -25,7 +25,11 @@ module.exports = function (env, conf) {
 			loaders: [
 				{
 					loader: 'raw',
-					test: /\.(css|html)$/
+					test: /\.(css)$/
+				},
+				{
+					loader: 'raw!html-minify',
+					test: /\.(html)$/
 				},
 				{
 					loader: 'ts',
@@ -97,6 +101,17 @@ module.exports = function (env, conf) {
 		],
 		resolve: {
 			extensions: [ '', '.js', '.ts' ]
+		},
+		'ts': {
+			logLevel: 'warn'
+		},
+		'html-minify-loader': {
+			empty: true,        // KEEP empty attributes
+			comments: true,     // KEEP comments
+			quotes: true,       //KEPP quotes
+			dom: { // options of !(htmlparser2)[https://github.com/fb55/htmlparser2]
+				lowerCaseAttributeNames: false, // do not call .toLowerCase for each attribute name (Angular2 use camelCase attributes)
+			}
 		}
 	};
 };
