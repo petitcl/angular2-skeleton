@@ -28,8 +28,11 @@
 * :white_check_mark: add angular i18n
 * :red_circle: Add Rx.js conf
 * :red_circle: add dashboard page
-* :red_circle: add components directory
-* :red_circle: Store service
+* :white_check_mark: add components directory
+* :white_check_mark: Store service
 * :red_circle: Session service
+* :red_circle: Configuration service
+* :red_circle: (bonus) Conf / Value annotation
+* :red_circle: (bonus) SkeletonModule / CommonsModule
 * :red_circle: Authorization HTTP interceptor 
 * :red_circle: Cachify Service
