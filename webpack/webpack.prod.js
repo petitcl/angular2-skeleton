@@ -7,6 +7,7 @@ module.exports = function (env, conf) {
 	const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 	const CopyWebpackPlugin = require('copy-webpack-plugin');
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
+	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
@@ -89,7 +90,8 @@ module.exports = function (env, conf) {
 			]),
 			new CopyWebpackPlugin([
 				{ context: app, from: "translations", to: "translations" }
-			])
+			]),
+			new ProgressBarPlugin()
 		],
 		resolve: {
 			extensions: [ '', '.js', '.ts' ]
