@@ -14,7 +14,7 @@ export class InMemoryStoreService implements StoreService {
 		try {
 			return JSON.parse(this.cache[key]);
 		} catch (e) {
-			return undefined;
+			return null;
 		}
 	}
 

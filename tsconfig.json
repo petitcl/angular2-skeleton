@@ -9,7 +9,9 @@
     "removeComments": false,
     "noImplicitAny": false,
     "types": [
-      "core-js", "webpack-env"
+      "core-js",
+      "webpack-env",
+      "jasmine"
     ]
   }
 }

@@ -12,6 +12,8 @@ switch (env) {
 	case "production":
 		module.exports = require('./webpack/webpack.prod')(env, config);
 		break;
+	case "test":
+		module.exports = require('./webpack/webpack.test')(env, config);
 	default:
 	case "development":
 		module.exports = require('./webpack/webpack.dev')(env, config);

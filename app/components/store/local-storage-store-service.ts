@@ -11,7 +11,7 @@ export class LocalStorageStoreService implements StoreService {
 		try {
 			return JSON.parse(this.window.localStorage.getItem(key));
 		} catch (e) {
-			return undefined;
+			return null;
 		}
 	}
 
