@@ -23,6 +23,7 @@
 * :white_check_mark: add font awesome
 * :red_circle: base webpack config file
 * :white_check_mark: unit tests
+* :red_circle: end to end tests
 * :red_circle: code coverage
 * :red_circle: release task 
 * :red_circle: git commit hook
