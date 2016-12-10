@@ -12,11 +12,11 @@ export class AppComponent {
 		private translateService: TranslateService,
 		@Inject(StoreServiceToken) private store: StoreService
 	) {
-		console.log('AppComponent instanciated !');
+		// console.log('AppComponent instanciated !');
 		this.translateService.setDefaultLang("en-GB");
 		this.translateService.use("en-GB");
 
 		store.set("tata", "tutu");
-		console.log(store.get("tata"));
+		// console.log(store.get("tata"));
 	}
 }

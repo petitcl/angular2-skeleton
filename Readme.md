@@ -25,8 +25,8 @@
 * :white_check_mark: unit tests
 * :red_circle: end to end tests
 * :red_circle: code coverage
-* :red_circle: release task 
-* :red_circle: git commit hook
+* :red_circle: release task
+* :white_check_mark: git commit hook
 * :white_check_mark: add angular i18n
 * :red_circle: Add Rx.js conf
 * :red_circle: add dashboard page

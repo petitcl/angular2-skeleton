@@ -6,7 +6,8 @@
     "watch": "webpack --watch",
     "tslint": "tslint 'app/**/*.ts'",
     "test": "karma start ./karma/karma.conf.js",
-    "test:headless": "karma start ./karma/karma.conf.js --browsers PhantomJS"
+    "test:headless": "karma start ./karma/karma.conf.js --browsers PhantomJS",
+    "postinstall": "./bin/setup-git-hooks"
   },
   "licenses": [
     {
