@@ -10,34 +10,38 @@ module.exports = function (env, conf) {
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
 	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 	const extractRootCss = new ExtractTextPlugin("styles.css");
+	const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
 	const dist = 'dist';
+	const node_modules = 'node_modules';
 
 	return {
-		debug: false,
 		devtool: 'source-map',
 		entry: {
 			app: [path.resolve(rootDir, app, 'main')],
 			vendor: [path.resolve(rootDir, app, 'vendor')],
 			css: [ path.resolve(rootDir, app, 'app-module.scss')]
 		},
+		resolve: {
+			extensions: ['.js', '.ts'],
+			modules: [ path.resolve(__dirname, app), node_modules ]
+		},
 		module: {
-			preLoaders: [
-				{
-					test: /\.ts$/,
-					loader: 'tslint-loader'
-				}
-			],
 			loaders: [
 				{
-					loader: 'raw',
+					enforce: 'pre',
+					test: /\.ts$/,
+					loader: 'tslint-loader'
+				},
+				{
+					loader: 'raw-loader',
 					test: /\.(css|html)$/
 				},
 				{
 					loaders: [
-						'ts-loader',
+						'awesome-typescript-loader',
 						'angular2-template-loader',
 						'angular2-router-loader'
 					],
@@ -107,14 +111,20 @@ module.exports = function (env, conf) {
 			new CopyWebpackPlugin([
 				{ context: app, from: "translations", to: "translations" }
 			]),
-			new ProgressBarPlugin()
-		],
-		resolve: {
-			extensions: ['', '.js', '.ts']
-		},
-		'ts': {
-			logLevel: 'warn'
-		}
+			new ProgressBarPlugin(),
+			new LoaderOptionsPlugin({
+				debug: true,
+				options: {
+					ts: {
+						logLevel: 'warn'
+					},
+					sass: {
+						includePaths: [path.resolve(__dirname, 'app')]
+					},
+					context: '/'
+				}
+			})
+		]
 	};
 };
 
