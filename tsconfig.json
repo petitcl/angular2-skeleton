@@ -11,7 +11,8 @@
     "types": [
       "core-js",
       "webpack-env",
-      "jasmine"
+      "jasmine",
+      "lodash"
     ]
   }
 }

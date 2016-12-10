@@ -4,6 +4,7 @@ import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-trans
 import {AppComponent} from "./app-component";
 import {Http, HttpModule} from "@angular/http";
 import {StoreModule} from "./components/store/store-module";
+import {ConfigurationService} from "./components/conf/configuration-service";
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,
@@ -12,7 +13,8 @@ const WINDOW_PROVIDER: ValueProvider = {
 
 @NgModule({
 	providers: [
-		WINDOW_PROVIDER
+		WINDOW_PROVIDER,
+		ConfigurationService
 	],
 	imports: [
 		BrowserModule,
