@@ -1,6 +1,6 @@
 {
   "name": "angular2-skeleton",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
     "start": "webpack",
     "watch": "webpack --watch",
