@@ -21,21 +21,17 @@ module.exports = function (env, conf) {
 			modules: [ path.resolve(__dirname, 'app'), 'node_modules' ]
 		},
 		module: {
-				loaders: [
+			loaders: [
 				{
 					enforce: 'pre',
 					test: /\.ts$/,
 					loader: 'tslint-loader'
 				},
 				{
-					loader: 'raw-loader',
-					test: /\.(css|html)$/
-				},
-				{
-					loader: 'ts-loader',
+					loader: 'awesome-typescript-loader',
 					test: /\.ts$/,
 					exclude: /node_modules/
-				},
+				}
 			]
 		},
 		output: {},
@@ -46,7 +42,6 @@ module.exports = function (env, conf) {
 			new LoaderOptionsPlugin({
 				debug: true,
 				options: {
-
 				}
 			})
 		]
