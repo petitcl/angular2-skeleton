@@ -9,3 +9,4 @@ dist/
 npm-debug.log
 conf/local.js
 stats.json
+coverage

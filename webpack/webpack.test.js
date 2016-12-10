@@ -9,6 +9,7 @@ module.exports = function (env, conf) {
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
 	const dist = 'dist';
+	const node_modules = 'node_modules';
 
 	return {
 		devtool: 'inline-source-map',
@@ -18,19 +19,50 @@ module.exports = function (env, conf) {
 		},
 		resolve: {
 			extensions: ['.js', '.ts'],
-			modules: [ path.resolve(__dirname, 'app'), 'node_modules' ]
+			modules: [ path.resolve(rootDir, 'app'), 'node_modules' ]
 		},
 		module: {
 			loaders: [
 				{
 					enforce: 'pre',
-					test: /\.ts$/,
-					loader: 'tslint-loader'
+					test: /\.js$/,
+					loader: 'source-map-loader',
+					exclude: [
+						// these packages have problems with their sourcemaps
+						path.resolve(rootDir, node_modules, '/rxjs'),
+						path.resolve(rootDir, node_modules, '/@angular')
+					]
 				},
 				{
-					loader: 'awesome-typescript-loader',
 					test: /\.ts$/,
-					exclude: /node_modules/
+					loader: 'awesome-typescript-loader',
+					query: {
+						// use inline sourcemaps for "karma-remap-coverage" reporter
+						sourceMap: false,
+						inlineSourceMap: true,
+						compilerOptions: {
+
+							// Remove TypeScript helpers to be injected
+							// below by DefinePlugin
+							removeComments: true
+
+						}
+					},
+					exclude: [/\.e2e\.ts$/]
+				},
+				{
+					loader: 'raw-loader',
+					test: /\.(html)$/
+				},
+				{
+					enforce: 'post',
+					test: /\.(js|ts)$/,
+					loader: 'istanbul-instrumenter-loader',
+					include: path.resolve(rootDir, 'app'),
+					exclude: [
+						/\.(e2e|spec)\.ts$/,
+						/node_modules/
+					]
 				}
 			]
 		},
