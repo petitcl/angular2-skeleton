@@ -11,7 +11,6 @@
 * :white_check_mark: misc files
 * :white_check_mark: js/ts sourcemaps in dev only
 * :white_check_mark: scss sourcemaps in dev only
-* :red_circle: preprocess files (environment specific)
 * :white_check_mark: inline HTML partials
 * :red_circle: css livereload
 * :red_circle: js livereload
