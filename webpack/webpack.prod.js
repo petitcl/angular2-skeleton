@@ -10,31 +10,36 @@ module.exports = function (env, conf) {
 	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 	const ImageMinPlugin = require('imagemin-webpack-plugin').default;
 	const extractRootCss = new ExtractTextPlugin("styles.css");
+	const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
 	const dist = 'dist';
+	const node_modules = 'node_modules';
 
 	return {
-		debug: true,
 		entry: {
 			app: [ path.resolve(rootDir, app, 'main') ],
 			vendor: [ path.resolve(rootDir, app, 'vendor') ],
 			css: [ path.resolve(rootDir, app, 'app-module.scss')]
 		},
+		resolve: {
+			extensions: [ '.js', '.ts' ],
+			modules: [ path.resolve(__dirname, app), node_modules ]
+		},
 		module: {
 			loaders: [
 				{
-					loader: 'raw',
+					loader: 'raw-loader',
 					test: /\.(css)$/
 				},
 				{
-					loader: 'raw!html-minify',
+					loader: 'raw-loader!html-minify-loader',
 					test: /\.(html)$/
 				},
 				{
 					loaders: [
-						'ts-loader',
+						'awesome-typescript-loader',
 						'angular2-template-loader',
 						'angular2-router-loader'
 					],
@@ -108,21 +113,27 @@ module.exports = function (env, conf) {
 				{ context: app, from: "translations", to: "translations" }
 			]),
 			new ProgressBarPlugin(),
-			new ImageMinPlugin()
+			new ImageMinPlugin(),
+			new LoaderOptionsPlugin({
+				debug: true,
+				options: {
+					ts: {
+						logLevel: 'warn'
+					},
+					sass: {
+						includePaths: [path.resolve(__dirname, 'app')]
+					},
+					context: '/',
+					'html-minify-loader': {
+						empty: true,        // KEEP empty attributes
+						comments: true,     // KEEP comments
+						quotes: true,       //KEPP quotes
+						dom: { // options of !(htmlparser2)[https://github.com/fb55/htmlparser2]
+							lowerCaseAttributeNames: false, // do not call .toLowerCase for each attribute name (Angular2 use camelCase attributes)
+						}
+					}
+				}
+			})
 		],
-		resolve: {
-			extensions: [ '', '.js', '.ts' ]
-		},
-		'ts': {
-			logLevel: 'warn'
-		},
-		'html-minify-loader': {
-			empty: true,        // KEEP empty attributes
-			comments: true,     // KEEP comments
-			quotes: true,       //KEPP quotes
-			dom: { // options of !(htmlparser2)[https://github.com/fb55/htmlparser2]
-				lowerCaseAttributeNames: false, // do not call .toLowerCase for each attribute name (Angular2 use camelCase attributes)
-			}
-		}
 	};
 };
