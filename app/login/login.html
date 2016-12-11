@@ -1,3 +1,26 @@
 <div class="container text-center">
-	<h1>Login!!</h1>
+	<h1>Login</h1>
+	<div class="well col-xs-12 col-md-4 col-md-offset-4">
+		<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="form form-horizontal">
+			<div class="form-group">
+				<div class="col-xs-12">
+					<input type="text" name="email" id="email" class="form-control"
+						   placeholder="Email" [(ngModel)]="email" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-12">
+					<input type="password" name="password" id="password" class="form-control"
+						   placeholder="Password" [(ngModel)]="password" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-12">
+					<button type="submit" class="btn btn-primary btn-block">
+						Sign in
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
