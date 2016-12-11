@@ -1,11 +1,12 @@
 import {NgModule, ValueProvider} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-translate";
+import {TranslateModule, TranslateLoader, TranslateStaticLoader, TranslatePipe} from "ng2-translate";
 import {AppComponent} from "./app-component";
 import {Http, HttpModule} from "@angular/http";
 import {StoreModule} from "./components/store/store-module";
 import {ConfigurationModule} from "./components/conf/configuration-module";
 import {HeaderModule} from "./header/header-module";
+import {SkeletonModule} from "./components/skeleton/skeleton-module";
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,
@@ -19,15 +20,12 @@ const WINDOW_PROVIDER: ValueProvider = {
 	imports: [
 		BrowserModule,
 		HttpModule,
-		TranslateModule.forRoot({
-			provide: TranslateLoader,
-			useFactory: (http: Http) => new TranslateStaticLoader(http, '/translations', '.json'),
-			deps: [Http]
-		}),
 		StoreModule,
+		SkeletonModule,
 		ConfigurationModule.forRoot(process.env),
 		HeaderModule
 	],
+	// declarations: [AppComponent, TranslatePipe],
 	declarations: [AppComponent],
 	bootstrap: [AppComponent]
 })

@@ -1,4 +1,11 @@
 {
+  "header": {
+    "title": "Squelette Angular",
+    "links": {
+      "home": "Accueil",
+      "login": "Login"
+    }
+  },
   "dashboard": {
     "title": "Ma première application Angular 2"
   }
