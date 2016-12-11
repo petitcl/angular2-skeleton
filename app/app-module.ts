@@ -5,6 +5,7 @@ import {AppComponent} from "./app-component";
 import {Http, HttpModule} from "@angular/http";
 import {StoreModule} from "./components/store/store-module";
 import {ConfigurationModule} from "./components/conf/configuration-module";
+import {HeaderModule} from "./header/header-module";
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,
@@ -24,7 +25,8 @@ const WINDOW_PROVIDER: ValueProvider = {
 			deps: [Http]
 		}),
 		StoreModule,
-		ConfigurationModule.forRoot(process.env)
+		ConfigurationModule.forRoot(process.env),
+		HeaderModule
 	],
 	declarations: [AppComponent],
 	bootstrap: [AppComponent]
