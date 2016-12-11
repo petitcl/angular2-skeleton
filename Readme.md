@@ -34,7 +34,7 @@
 * :red_circle: Session service
 * :white_check_mark: Configuration service
 * :red_circle: (bonus) Conf / Value annotation
-* :red_circle: (bonus) SkeletonModule / CommonsModule
+* :white_check_mark: (bonus) SkeletonModule / CommonsModule
 * :red_circle: Authorization HTTP interceptor 
 * :red_circle: Cachify Service
 * :white_check_mark: Header Module
