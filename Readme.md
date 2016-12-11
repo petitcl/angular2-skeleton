@@ -37,3 +37,8 @@
 * :red_circle: (bonus) SkeletonModule / CommonsModule
 * :red_circle: Authorization HTTP interceptor 
 * :red_circle: Cachify Service
+* :red_circle: Header Module
+* :red_circle: Footer Module
+* :red_circle: Fake Login Module
+* :red_circle: More Documentation
+* :red_circle: More Unit tests (as an example)
