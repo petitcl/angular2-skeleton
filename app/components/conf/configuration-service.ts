@@ -1,12 +1,10 @@
-import {Injectable} from "@angular/core";
-const _ = require("lodash");
+import * as _ from "lodash";
 
-@Injectable()
 export class ConfigurationService {
 	private conf: any;
 
-	constructor() {
-		this.conf = {};
+	constructor(baseConf?: any) {
+		this.conf = baseConf || {};
 	}
 
 	get(key: string) {

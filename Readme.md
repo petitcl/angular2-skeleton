@@ -32,7 +32,7 @@
 * :white_check_mark: add components directory
 * :white_check_mark: Store service
 * :red_circle: Session service
-* :red_circle: Configuration service
+* :white_check_mark: Configuration service
 * :red_circle: (bonus) Conf / Value annotation
 * :red_circle: (bonus) SkeletonModule / CommonsModule
 * :red_circle: Authorization HTTP interceptor 

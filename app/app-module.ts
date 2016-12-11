@@ -4,7 +4,7 @@ import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-trans
 import {AppComponent} from "./app-component";
 import {Http, HttpModule} from "@angular/http";
 import {StoreModule} from "./components/store/store-module";
-import {ConfigurationService} from "./components/conf/configuration-service";
+import {ConfigurationModule} from "./components/conf/configuration-module";
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,
@@ -13,8 +13,7 @@ const WINDOW_PROVIDER: ValueProvider = {
 
 @NgModule({
 	providers: [
-		WINDOW_PROVIDER,
-		ConfigurationService
+		WINDOW_PROVIDER
 	],
 	imports: [
 		BrowserModule,
@@ -24,7 +23,8 @@ const WINDOW_PROVIDER: ValueProvider = {
 			useFactory: (http: Http) => new TranslateStaticLoader(http, '/translations', '.json'),
 			deps: [Http]
 		}),
-		StoreModule
+		StoreModule,
+		ConfigurationModule.forRoot(process.env)
 	],
 	declarations: [AppComponent],
 	bootstrap: [AppComponent]

@@ -20,7 +20,8 @@ export class AppComponent {
 
 		store.set("tata", "tutu");
 		conf.set("nested", { property: "success"});
-		console.log(conf.get("nested.property"));
+		// console.log(conf.get("nested.property"));
+		// console.log(conf.get("NODE_ENV"));
 		// console.log(store.get("tata"));
 	}
 }
