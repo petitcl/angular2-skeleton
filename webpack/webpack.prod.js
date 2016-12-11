@@ -32,7 +32,11 @@ module.exports = function (env, conf) {
 					test: /\.(html)$/
 				},
 				{
-					loader: 'ts',
+					loaders: [
+						'ts-loader',
+						'angular2-template-loader',
+						'angular2-router-loader?debug='
+					],
 					test: /\.ts$/,
 					exclude: /node_modules/
 				},

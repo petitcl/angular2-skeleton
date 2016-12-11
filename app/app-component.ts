@@ -6,7 +6,7 @@ import {ConfigurationService} from "./components/conf/configuration-service";
 
 @Component({
 	selector: 'my-app',
-	template: require<string>('./app.html')
+	templateUrl: './app.html'
 })
 export class AppComponent {
 	constructor(

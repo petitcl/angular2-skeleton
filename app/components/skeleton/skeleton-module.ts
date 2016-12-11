@@ -7,6 +7,8 @@ import {BrowserModule} from "@angular/platform-browser";
 
 //TODO: *DO NOT* import StoreModule & ConfigurationModule here, coz it might break future lazy loaded modules
 //see https://angular.io/docs/ts/latest/cookbook/ngmodule-faq.html#!#q-why-bad
+
+
 @NgModule({
 	imports: [
 		BrowserModule,

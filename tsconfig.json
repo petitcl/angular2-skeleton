@@ -10,7 +10,6 @@
     "noImplicitAny": false,
     "types": [
       "core-js",
-      "webpack-env",
       "jasmine",
       "lodash"
     ]

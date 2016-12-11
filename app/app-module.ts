@@ -1,9 +1,9 @@
 import {NgModule, ValueProvider} from "@angular/core";
 import {AppComponent} from "./app-component";
-import {HeaderModule} from "./header/header-module";
 import {SkeletonModule} from "./components/skeleton/skeleton-module";
 import {HomeComponent} from "./home/home-component";
 import {Routes, RouterModule} from "@angular/router";
+import {HeaderComponent} from "./header/header-component";
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,
@@ -11,7 +11,8 @@ const WINDOW_PROVIDER: ValueProvider = {
 };
 
 const routes: Routes = [
-	{ path: '', component: HomeComponent }
+	{ path: '', component: HomeComponent },
+	{ path: 'login', loadChildren: './login/login-module#LoginModule' }
 ];
 
 
@@ -21,10 +22,9 @@ const routes: Routes = [
 	],
 	imports: [
 		RouterModule.forRoot(routes),
-		SkeletonModule,
-		HeaderModule
+		SkeletonModule
 	],
-	declarations: [AppComponent, HomeComponent],
+	declarations: [AppComponent, HeaderComponent, HomeComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

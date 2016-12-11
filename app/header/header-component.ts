@@ -3,7 +3,7 @@ import {ConfigurationService} from "../components/conf/configuration-service";
 
 @Component({
 	selector: 'header',
-	template: require<string>('./header.html')
+	templateUrl: './header.html'
 })
 export class HeaderComponent {
 	constructor(private conf: ConfigurationService) {
