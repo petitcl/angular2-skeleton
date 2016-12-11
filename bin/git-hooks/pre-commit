@@ -1,6 +1,6 @@
 #!/bin/sh
 
-npm run tslint
+tslint 'app/**/*.ts'
 status=$?
 
 [ $status = 1 ] && echo "COMMIT CONTENT REJECTED" || echo "COMMIT CONTENT ACCEPTED"
