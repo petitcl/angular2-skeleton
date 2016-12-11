@@ -6,7 +6,7 @@
       "login": "Login"
     }
   },
-  "dashboard": {
+  "home": {
     "title": "Ma première application Angular 2"
   }
 }

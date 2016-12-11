@@ -28,7 +28,7 @@
 * :white_check_mark: git commit hook
 * :white_check_mark: add angular i18n
 * :red_circle: Add Rx.js conf
-* :red_circle: add dashboard page
+* :white_check_mark: add dashboard page
 * :white_check_mark: add components directory
 * :white_check_mark: Store service
 * :red_circle: Session service

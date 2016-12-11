@@ -4,6 +4,7 @@ export class ConfigurationService {
 	private conf: any;
 
 	constructor(baseConf?: any) {
+		// console.log('am I being constructed');
 		this.conf = baseConf || {};
 	}
 
