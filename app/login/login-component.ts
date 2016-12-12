@@ -3,7 +3,9 @@ import {ConfigurationService} from "../components/conf/configuration-service";
 
 @Component({
 	selector: 'login',
-	templateUrl: './login.html'
+	templateUrl: './login.html',
+	//careful: we do not have sourcemap when using styleUrls (yet)
+	styleUrls: ['./login-module.scss']
 })
 export class LoginComponent {
 	constructor(private conf: ConfigurationService) {

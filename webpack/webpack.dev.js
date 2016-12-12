@@ -9,6 +9,7 @@ module.exports = function (env, conf) {
 	const CopyWebpackPlugin = require('copy-webpack-plugin');
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
 	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+	const extractRootCss = new ExtractTextPlugin("styles.css");
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
@@ -38,14 +39,22 @@ module.exports = function (env, conf) {
 					loaders: [
 						'ts-loader',
 						'angular2-template-loader',
-						'angular2-router-loader?debug='
+						'angular2-router-loader'
 					],
 					test: /\.ts$/,
 					exclude: /node_modules/
 				},
 				{
 					test: /\.scss$/,
-					loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap')
+					loaders: [
+						'raw-loader',
+						'sass-loader?sourceMap'
+					],
+					exclude: /app\-module\.scss$/
+				},
+				{
+					test: /app\-module\.scss$/,
+					loader: extractRootCss.extract('css?sourceMap!sass?sourceMap')
 				},
 				{
 					test: /\.(png|jpe?g|gif|ico|svg)$/,
@@ -88,9 +97,7 @@ module.exports = function (env, conf) {
 				inject: 'body',
 				template: path.resolve(rootDir, app, 'index.html')
 			}),
-			new ExtractTextPlugin("styles.css", {
-				allChunks: true
-			}),
+			extractRootCss,
 			new DefinePlugin({
 				'process.env': JSON.stringify(conf.env || {})
 			}),
