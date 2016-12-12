@@ -1,17 +1,23 @@
 <div class="container text-center" id="login">
 	<h1>Login</h1>
 	<div class="well col-xs-12 col-md-4 col-md-offset-4">
-		<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="form form-horizontal">
+		<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()" class="form form-horizontal">
 			<div class="form-group">
 				<div class="col-xs-12">
-					<input type="text" name="email" id="email" class="form-control"
-						   placeholder="Email" [(ngModel)]="email" required/>
+					<input type="text" name="email" id="email" class="form-control" ngControl="email" n9-email
+						   placeholder="Email" [(ngModel)]="credentials.email" required #email="ngModel"/>
+					<div *ngIf="email.errors && email.dirty"
+						 class="alert alert-danger">
+						<div [hidden]="!email.errors.required">
+							This field is required
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-xs-12">
 					<input type="password" name="password" id="password" class="form-control"
-						   placeholder="Password" [(ngModel)]="password" required/>
+						   placeholder="Password" [(ngModel)]="credentials.password" required/>
 				</div>
 			</div>
 			<div class="form-group">

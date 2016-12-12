@@ -9,6 +9,7 @@ import {HttpModule, Http} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {TranslateStaticLoader, TranslateLoader, TranslateModule} from "ng2-translate";
+import {SharedModule} from "./components/shared/shared-module";
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,
@@ -38,7 +39,8 @@ const routes: Routes = [
 			deps: [Http]
 		}),
 
-		CoreModule
+		CoreModule,
+		SharedModule
 	],
 	declarations: [
 		AppComponent,

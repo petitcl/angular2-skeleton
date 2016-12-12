@@ -1,0 +1,9 @@
+.ng-valid[required], .ng-valid.required  {
+	border: 1px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+	&.ng-dirty {
+		border: 1px solid #a94442;
+	}
+}
