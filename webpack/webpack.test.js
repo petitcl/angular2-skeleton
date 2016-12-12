@@ -10,7 +10,7 @@ module.exports = function (env, conf) {
 	const dist = 'dist';
 
 	return {
-		debug: true,
+		debug: false,
 		devtool: 'inline-source-map',
 		entry: {
 			app: [path.resolve(rootDir, app, 'main')],
@@ -47,7 +47,7 @@ module.exports = function (env, conf) {
 		resolve: {
 			extensions: ['', '.js', '.ts']
 		},
-		'ts': {
+		ts: {
 			logLevel: 'warn'
 		}
 	};

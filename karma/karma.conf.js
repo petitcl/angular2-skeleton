@@ -21,6 +21,7 @@ module.exports = config => {
 		singleRun: true,
 		webpack: require('../webpack/webpack.test.js')("test", {}),
 		webpackServer: {
+			stats: 'errors-only',
 			noInfo: true
 		}
 	});
