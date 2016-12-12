@@ -1,15 +1,17 @@
 <div class="container text-center" id="login">
-	<h1>Login</h1>
+	<h1>{{'login.title' | translate}}</h1>
 	<div class="well col-xs-12 col-md-4 col-md-offset-4">
 		<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()" class="form form-horizontal">
 			<div class="form-group">
 				<div class="col-xs-12">
 					<input type="text" name="email" id="email" class="form-control" ngControl="email" n9-email
 						   placeholder="Email" [(ngModel)]="credentials.email" required #email="ngModel"/>
-					<div *ngIf="email.errors && email.dirty"
-						 class="alert alert-danger">
+					<div *ngIf="email.errors && email.dirty" class="alert alert-danger margin-top-xs-xs">
 						<div [hidden]="!email.errors.required">
 							This field is required
+						</div>
+						<div [hidden]="!email.errors.n9Email">
+							Wrong email format
 						</div>
 					</div>
 				</div>
@@ -22,7 +24,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-12">
-					<button type="submit" class="btn btn-primary btn-block">
+					<button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid">
 						Sign in
 					</button>
 				</div>
