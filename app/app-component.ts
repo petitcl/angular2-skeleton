@@ -14,18 +14,8 @@ export class AppComponent {
 		this.translateService.setDefaultLang("en-GB");
 		this.translateService.use("fr-FR");
 		this.session.load();
-		// this.session.login({ email: 'titi', password: 'tata'})
-		// // this.session.login({ email: 'clement.petit@neo9.fr', password: 'azerty'})
-		// 	.subscribe(
-		// 		res => {
-		// 			console.log("success");
-		// 			this.session.logout();
-		// 		}
-		// 	);
-        //
-		// this.session.session$.subscribe(
-		// 	p => console.log('using session observable', p)
-		// );
+
+		// this.session.session$.subscribe(p => console.log('new session value', p));
 		// this.session.login$.subscribe(p => console.log("logged in"));
 		// this.session.logout$.subscribe(p => console.log("logged out"));
 	}

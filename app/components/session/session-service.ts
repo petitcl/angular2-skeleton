@@ -4,27 +4,28 @@ import {Http, Headers} from "@angular/http";
 import {ConfigurationService} from "../conf/configuration-service";
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Subject} from 'rxjs/Subject';
 
-interface Address {
+export interface Address {
 	line: string;
 	line2?: string;
 	zipCode: string;
 	city: string;
 }
 
-interface Profile {
+export interface Profile {
 	firstname: string;
 	lastname: string;
 	email: string;
 	address: Address;
 }
 
-interface Session {
+export interface Session {
 	token: string;
 	profile: Profile;
 }
 
-interface Credentials {
+export interface Credentials {
 	email: string;
 	password: string;
 }
@@ -35,8 +36,8 @@ export class SessionService {
 	private sessionKey = "session";
 
 	public session$: Observable<Session> = new BehaviorSubject(null);
-	public login$: Observable<any> = this.session$.filter(s => !!s);
-	public logout$: Observable<any> = this.session$.pairwise().filter(v => !!v[0] && !v[1] );
+	public login$: Observable<any> = new Subject();
+	public logout$: Observable<any> = new Subject();
 
 	//TODO: use ApiHttpClient (conf aware, session aware)
 	constructor(
@@ -49,6 +50,7 @@ export class SessionService {
 	load() {
 		const session: Session = this.store.get(this.sessionKey);
 		if (!session) return;
+		(<Subject<any>>this.logout$).next();
 		this.openSession(session);
 	}
 
@@ -65,6 +67,7 @@ export class SessionService {
 				res => {
 					// console.log(res);
 					this.openSession(res);
+					(<Subject<any>>this.login$).next();
 					return <Session>res;
 				}
 			);

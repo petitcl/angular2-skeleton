@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EmailValidator} from "../components/validators/email-validator";
+import {SessionService, Credentials} from "../components/session/session-service";
 
 @Component({
 	selector: 'login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
 	loginForm: FormGroup;
 
-	constructor(private fb: FormBuilder) {
+	constructor(private fb: FormBuilder, private session: SessionService) {
 	}
 
 	ngOnInit(): void {
@@ -30,7 +31,10 @@ export class LoginComponent implements OnInit {
 	}
 
 	onSubmit() {
-		// console.log(this.loginForm.valid);
-		// console.log('submit!');
+		if (!this.loginForm.valid) return;
+		this.session.login(<Credentials>this.loginForm.getRawValue())
+			.subscribe(
+				p => {}
+			);
 	}
 }
