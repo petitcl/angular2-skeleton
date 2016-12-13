@@ -8,6 +8,22 @@
   },
   "home": {
     "title": "My First Angular 2 application"
+  },
+  "login": {
+    "title": "Sign in",
+    "form": {
+      "placeholders": {
+        "email": "Email",
+        "password": "Password"
+      },
+      "errors": {
+        "required": "This field is required",
+        "email": "Wrong email format"
+      },
+      "actions": {
+        "submit": "Submit"
+      }
+    }
   }
 }
 

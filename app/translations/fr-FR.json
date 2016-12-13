@@ -10,18 +10,18 @@
     "title": "Ma première application Angular 2"
   },
   "login": {
-    "title": "Sign in",
+    "title": "Connexion",
     "form": {
       "placeholders": {
         "email": "Email",
-        "password": "Password"
+        "password": "Mot de passe"
       },
       "errors": {
-        "required": "This field is required",
-        "email": "Wrong email format"
+        "required": "Ce champ est requis",
+        "email": "Format d'email invalide"
       },
       "actions": {
-        "submit": "Submit"
+        "submit": "Se connecter"
       }
     }
   }

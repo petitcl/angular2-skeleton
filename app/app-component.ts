@@ -16,7 +16,7 @@ export class AppComponent {
 	) {
 		// console.log('AppComponent instanciated !');
 		this.translateService.setDefaultLang("en-GB");
-		this.translateService.use("en-GB");
+		this.translateService.use("fr-FR");
 
 		store.set("tata", "tutu");
 		conf.set("nested", { property: "success"});

@@ -1,14 +1,27 @@
-import {NgModule} from "@angular/core";
+import {NgModule, ModuleWithProviders} from "@angular/core";
 import {EmailValidator} from "../validators/email-validator";
+import {TranslateModule} from "ng2-translate";
 
 /*
 * Here put all the shared directives, components and pipe
 * You should import this module in every module where you want to use these shared directives
 * */
 @NgModule({
-	declarations: [EmailValidator],
-	exports: [EmailValidator]
+	imports: [
+		TranslateModule
+	],
+	declarations: [
+		EmailValidator
+	],
+	exports: [
+		TranslateModule,
+		EmailValidator
+	]
 })
 export class SharedModule {
-
+	static forRoot(): ModuleWithProviders {
+		return {
+			ngModule: SharedModule
+		};
+	}
 }

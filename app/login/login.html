@@ -5,13 +5,14 @@
 			<div class="form-group">
 				<div class="col-xs-12">
 					<input type="text" name="email" id="email" class="form-control" ngControl="email" n9-email
-						   placeholder="Email" [(ngModel)]="credentials.email" required #email="ngModel"/>
+						   placeholder="{{'login.form.placeholders.email' | translate}}"
+						   [(ngModel)]="credentials.email" required #email="ngModel"/>
 					<div *ngIf="email.errors && email.dirty" class="alert alert-danger margin-top-xs-xs">
 						<div [hidden]="!email.errors.required">
-							This field is required
+							{{'login.form.errors.required' | translate}}
 						</div>
 						<div [hidden]="!email.errors.n9Email">
-							Wrong email format
+							{{'login.form.errors.email' | translate}}
 						</div>
 					</div>
 				</div>
@@ -19,13 +20,14 @@
 			<div class="form-group">
 				<div class="col-xs-12">
 					<input type="password" name="password" id="password" class="form-control"
-						   placeholder="Password" [(ngModel)]="credentials.password" required/>
+						   placeholder="{{'login.form.placeholders.password' | translate}}"
+						   [(ngModel)]="credentials.password" required/>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-xs-12">
 					<button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid">
-						Sign in
+						{{'login.form.actions.submit' | translate}}
 					</button>
 				</div>
 			</div>

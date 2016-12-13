@@ -40,7 +40,7 @@ const routes: Routes = [
 		}),
 
 		CoreModule,
-		SharedModule
+		SharedModule.forRoot()
 	],
 	declarations: [
 		AppComponent,
