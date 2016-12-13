@@ -4,7 +4,7 @@ import {StoreService} from "./store-service";
 @Injectable()
 export class LocalStorageStoreService implements StoreService {
 	constructor(private window: Window) {
-
+		// console.log('dqsdsq');
 	}
 
 	get(key: string): any {

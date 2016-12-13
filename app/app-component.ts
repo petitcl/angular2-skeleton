@@ -1,7 +1,6 @@
 import {Component, Inject} from "@angular/core";
 import {TranslateService} from "ng2-translate";
 import {StoreService} from "./components/store/store-service";
-import {StoreServiceToken} from "./components/store/store-provider";
 import {ConfigurationService} from "./components/conf/configuration-service";
 
 @Component({
@@ -11,7 +10,7 @@ import {ConfigurationService} from "./components/conf/configuration-service";
 export class AppComponent {
 	constructor(
 		private translateService: TranslateService,
-		@Inject(StoreServiceToken) private store: StoreService,
+		private store: StoreService,
 		private conf: ConfigurationService
 	) {
 		// console.log('AppComponent instanciated !');
