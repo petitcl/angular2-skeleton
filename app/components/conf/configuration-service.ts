@@ -12,6 +12,10 @@ export class ConfigurationService {
 		return _.get(this.conf, key);
 	}
 
+	getAsString(key: string) {
+		return <string>this.get(key);
+	}
+
 	set(key: string, value: any) {
 		return _.set(this.conf, key, value);
 	}

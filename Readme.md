@@ -27,11 +27,11 @@
 * :red_circle: release task
 * :white_check_mark: git commit hook
 * :white_check_mark: add angular i18n
-* :red_circle: Add Rx.js conf
+* :white_check_mark: Add Rx.js conf
 * :white_check_mark: add dashboard page
 * :white_check_mark: add components directory
 * :white_check_mark: Store service
-* :red_circle: Session service
+* :white_check_mark: Session service
 * :white_check_mark: Configuration service
 * :red_circle: (bonus) Conf / Value annotation
 * :white_check_mark: (bonus) SkeletonModule / CommonsModule

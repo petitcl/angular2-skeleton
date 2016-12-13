@@ -1,7 +1,6 @@
-import {Component, Inject} from "@angular/core";
+import {Component} from "@angular/core";
 import {TranslateService} from "ng2-translate";
-import {StoreService} from "./components/store/store-service";
-import {ConfigurationService} from "./components/conf/configuration-service";
+import {SessionService} from "./components/session/session-service";
 
 @Component({
 	selector: 'my-app',
@@ -10,17 +9,24 @@ import {ConfigurationService} from "./components/conf/configuration-service";
 export class AppComponent {
 	constructor(
 		private translateService: TranslateService,
-		private store: StoreService,
-		private conf: ConfigurationService
+		private session: SessionService
 	) {
-		// console.log('AppComponent instanciated !');
 		this.translateService.setDefaultLang("en-GB");
 		this.translateService.use("fr-FR");
-
-		store.set("tata", "tutu");
-		conf.set("nested", { property: "success"});
-		// console.log(conf.get("nested.property"));
-		// console.log(conf.get("NODE_ENV"));
-		// console.log(store.get("tata"));
+		this.session.load();
+		// this.session.login({ email: 'titi', password: 'tata'})
+		// // this.session.login({ email: 'clement.petit@neo9.fr', password: 'azerty'})
+		// 	.subscribe(
+		// 		res => {
+		// 			console.log("success");
+		// 			this.session.logout();
+		// 		}
+		// 	);
+        //
+		// this.session.session$.subscribe(
+		// 	p => console.log('using session observable', p)
+		// );
+		// this.session.login$.subscribe(p => console.log("logged in"));
+		// this.session.logout$.subscribe(p => console.log("logged out"));
 	}
 }

@@ -1,6 +1,7 @@
 import {NgModule} from "@angular/core";
 import {ConfigurationModule} from "../conf/configuration-module";
 import {StoreModule} from "../store/store-module";
+import {SessionService} from "../session/session-service";
 
 
 /**
@@ -11,6 +12,9 @@ import {StoreModule} from "../store/store-module";
 	imports: [
 		StoreModule,
 		ConfigurationModule.forRoot(process.env)
+	],
+	providers: [
+		SessionService
 	]
 })
 export class CoreModule {
