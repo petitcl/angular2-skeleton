@@ -1,6 +1,6 @@
-import {Component} from "@angular/core";
-import {ConfigurationService} from "../components/conf/configuration-service";
-import {TranslateService} from "ng2-translate";
+import {Component, OnInit} from "@angular/core";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {EmailValidator} from "../components/validators/email-validator";
 
 @Component({
 	selector: 'login',
@@ -8,18 +8,29 @@ import {TranslateService} from "ng2-translate";
 	//careful: we do not have sourcemaps when using styleUrls (yet)
 	styleUrls: ['./login-module.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-	credentials = {};
+	loginForm: FormGroup;
 
-	constructor(private conf: ConfigurationService, private translateService: TranslateService) {
-		// console.log(conf.get('nested'));
-		// console.log(translateService.currentLang);
-		// console.log(translateService.get('home.title'));
-		// console.log(translateService.get('login.title'));
+	constructor(private fb: FormBuilder) {
+	}
+
+	ngOnInit(): void {
+		this.loginForm = this.fb.group({
+			'email': [
+				'', [
+					Validators.required,
+					EmailValidator.validEmail
+				]
+			],
+			'password': [
+				'', [Validators.required]
+			]
+		});
 	}
 
 	onSubmit() {
+		// console.log(this.loginForm.valid);
 		// console.log('submit!');
 	}
 }
