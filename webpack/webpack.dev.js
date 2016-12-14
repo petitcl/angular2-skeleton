@@ -16,7 +16,7 @@ module.exports = function (env, conf) {
 	const dist = 'dist';
 
 	return {
-		debug: true,
+		debug: false,
 		devtool: 'source-map',
 		entry: {
 			app: [path.resolve(rootDir, app, 'main')],
