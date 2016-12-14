@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {Http, Request, RequestOptionsArgs, Response, Headers} from "@angular/http";
-import {Observable} from 'rxjs/Observable';
-import * as _ from 'lodash';
+import {Http, RequestOptionsArgs, Response, Headers} from "@angular/http";
+import {Observable} from "rxjs/Observable";
+import * as _ from "lodash";
 
 @Injectable()
 export class ApiHttpClient {
@@ -16,9 +16,14 @@ export class ApiHttpClient {
 		this.addDefaultHeader(ApiHttpClient.CONTENT_TYPE_HEADER, ApiHttpClient.CONTENT_TYPE_APPLICATION_JSON);
 	}
 
-	addDefaultHeader(headerKey: string, headerValue: string) {
+	addDefaultHeader(name: string, value: string) {
 		this.defaultOptions.headers = this.defaultOptions.headers || new Headers();
-		this.defaultOptions.headers.append(headerKey, headerValue);
+		this.defaultOptions.headers.append(name, value);
+	}
+
+	deleteDefaultHeader(name) {
+		this.defaultOptions.headers = this.defaultOptions.headers || new Headers();
+		this.defaultOptions.headers.delete(name);
 	}
 
 	getDefaultRequestOptions() : RequestOptionsArgs {

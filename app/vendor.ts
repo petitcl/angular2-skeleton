@@ -10,8 +10,9 @@ import '@angular/platform-browser';
  * Be careful to never import ust 'rxjs';
  * in this case you would be importing the *ENTIRE* library which is huge
  */
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 
 import 'rxjs/add/observable/throw';

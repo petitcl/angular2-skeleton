@@ -1,10 +1,11 @@
 import {Injectable} from "@angular/core";
 import {StoreService} from "../store/store-service";
-import {Http, Headers} from "@angular/http";
+import {Headers} from "@angular/http";
 import {ConfigurationService} from "../conf/configuration-service";
-import {Observable} from 'rxjs/Observable';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Subject} from 'rxjs/Subject';
+import {Observable} from "rxjs/Observable";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Subject} from "rxjs/Subject";
+import {ApiHttpClient} from "../http/api-http-client";
 
 export interface Address {
 	line: string;
@@ -39,11 +40,10 @@ export class SessionService {
 	public login$: Observable<any> = new Subject();
 	public logout$: Observable<any> = new Subject();
 
-	//TODO: use ApiHttpClient (conf aware, session aware)
 	constructor(
 		private store: StoreService,
 		private conf: ConfigurationService,
-		private http: Http
+		private http: ApiHttpClient
 	) {
 	}
 
@@ -80,10 +80,12 @@ export class SessionService {
 	private openSession(session: Session) {
 		this.store.set(this.sessionKey, session);
 		(<BehaviorSubject<Session>>this.session$).next(session);
+		this.http.addDefaultHeader(ApiHttpClient.AUTHORIZATION_HEADER, session.token);
 	}
 
 	private closeSession() {
 		this.store.del(this.sessionKey);
 		(<BehaviorSubject<Session>>this.session$).next(null);
+		this.http.deleteDefaultHeader(ApiHttpClient.AUTHORIZATION_HEADER);
 	}
 }

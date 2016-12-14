@@ -2,6 +2,7 @@ import {NgModule} from "@angular/core";
 import {ConfigurationModule} from "../conf/configuration-module";
 import {StoreModule} from "../store/store-module";
 import {SessionService} from "../session/session-service";
+import {ApiHttpClient} from "../http/api-http-client";
 
 
 /**
@@ -14,7 +15,8 @@ import {SessionService} from "../session/session-service";
 		ConfigurationModule.forRoot(process.env)
 	],
 	providers: [
-		SessionService
+		SessionService,
+		ApiHttpClient
 	]
 })
 export class CoreModule {
