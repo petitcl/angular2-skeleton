@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
 		});
 	}
 
-	onSubmit() {
+	onSubmit($event) {
+		$event.stopPropagation();
 		if (!this.loginForm.valid) return;
 		this.session.login(<Credentials>this.loginForm.getRawValue())
 			.subscribe(

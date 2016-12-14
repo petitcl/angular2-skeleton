@@ -1,7 +1,7 @@
 <div class="container text-center" id="login">
 	<h1>{{'login.title' | translate}}</h1>
 	<div class="well col-xs-12 col-md-4 col-md-offset-4">
-		<form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form form-horizontal">
+		<form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit($event)" class="form form-horizontal">
 			<div class="form-group">
 				<div class="col-xs-12">
 					<input type="text" name="email" id="email" class="form-control" formControlName="email"
