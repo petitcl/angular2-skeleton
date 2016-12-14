@@ -3,6 +3,11 @@ import {Http, RequestOptionsArgs, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import _cloneDeep = require("lodash/cloneDeep");
 
+interface CustomRequestOptions {
+	url: string,
+	options: RequestOptionsArgs
+}
+
 @Injectable()
 export class ApiHttpClient {
 
@@ -11,6 +16,7 @@ export class ApiHttpClient {
 	public static readonly CONTENT_TYPE_APPLICATION_JSON: string = 'application/json';
 
 	private defaultOptions: RequestOptionsArgs = {};
+	private _basePath = "";
 
 	constructor(private http: Http) {
 		this.addDefaultHeader(ApiHttpClient.CONTENT_TYPE_HEADER, ApiHttpClient.CONTENT_TYPE_APPLICATION_JSON);
@@ -30,38 +36,53 @@ export class ApiHttpClient {
 		return _cloneDeep(this.defaultOptions);
 	}
 
+	get basePath() {
+		return this._basePath;
+	}
+
+	set basePath(basePath: string) {
+		if (!basePath) basePath = "";
+		this._basePath = basePath;
+	}
+
 	get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-		if (!options) options = this.getDefaultRequestOptions();
-		return this.http.get(url, options);
+		const opt = this.processRequestOptions(url, options);
+		return this.http.get(opt.url, opt.options);
 	}
 
 	post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-		if (!options) options = this.getDefaultRequestOptions();
-		return this.http.post(url, body, options);
+		const opt = this.processRequestOptions(url, options);
+		return this.http.post(opt.url, opt.options);
 	}
 
 	put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-		if (!options) options = this.getDefaultRequestOptions();
-		return this.http.put(url, body, options);
+		const opt = this.processRequestOptions(url, options);
+		return this.http.put(opt.url, body, opt.options);
 	}
 
 	delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-		if (!options) options = this.getDefaultRequestOptions();
-		return this.http.put(url, options);
+		const opt = this.processRequestOptions(url, options);
+		return this.http.delete(opt.url, opt.options);
 	}
 
 	patch(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-		if (!options) options = this.getDefaultRequestOptions();
-		return this.http.patch(url, options);
+		const opt = this.processRequestOptions(url, options);
+		return this.http.patch(opt.url, body, opt.options);
 	}
 
 	head(url: string, options?: RequestOptionsArgs): Observable<Response> {
-		if (!options) options = this.getDefaultRequestOptions();
-		return this.http.head(url, options);
+		const opt = this.processRequestOptions(url, options);
+		return this.http.head(opt.url, opt.options);
 	}
 
 	options(url: string, options?: RequestOptionsArgs): Observable<Response> {
+		const opt = this.processRequestOptions(url, options);
+		return this.http.options(opt.url, opt.options);
+	}
+
+	protected processRequestOptions(url: string, options?: RequestOptionsArgs) : CustomRequestOptions {
 		if (!options) options = this.getDefaultRequestOptions();
-		return this.http.options(url, options);
+		url = this.basePath + url;
+		return { url, options };
 	}
 }

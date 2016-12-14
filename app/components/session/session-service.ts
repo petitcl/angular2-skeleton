@@ -42,7 +42,6 @@ export class SessionService {
 
 	constructor(
 		private store: StoreService,
-		private conf: ConfigurationService,
 		private http: ApiHttpClient
 	) {
 	}
@@ -59,8 +58,7 @@ export class SessionService {
 			headers: new Headers({ 'Content-Type': 'application/json' })
 		};
 
-		//TODO: find a way to make this a hot observable ?
-		return this.http.post(this.conf.getAsString("api") + "/login", credentials, options)
+		return this.http.post("/login", credentials, options)
 			.map(res => res.json())
 			.catch(error => Observable.throw(error.json().error || 'Server error'))
 			.map(
