@@ -24,7 +24,7 @@
 * :white_check_mark: unit tests
 * :red_circle: end to end tests
 * :red_circle: code coverage
-* :red_circle: release task
+* :white_circle: ~~release task~~ (use `npm version` instead)
 * :red_circle: AOT compilation
 * :red_circle: reduce build size
 * :white_check_mark: git commit hook
