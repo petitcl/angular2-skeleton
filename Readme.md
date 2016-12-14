@@ -3,7 +3,7 @@
 * :white_check_mark: uglify js if not dev
 * :white_check_mark: imagemin if not dev
 * :white_check_mark: uglify html if not dev
-* :red_circle: custom lodash build
+* :white_circle: ~~custom lodash build~~ (use lodash operator import; `import _map = require("lodash/map");`)
 * :white_check_mark: inject environment specific conf
 * :white_check_mark: tslint
 * :white_check_mark: images
@@ -15,7 +15,7 @@
 * :red_circle: css livereload
 * :red_circle: js livereload
 * :red_circle: js hot reload
-* :red_circle: watch
+* :white_check_mark: watch
 * :white_check_mark: add bootstrap
 * :white_check_mark: add typings
 * :white_check_mark: add mixgen
@@ -26,6 +26,7 @@
 * :red_circle: code coverage
 * :red_circle: release task
 * :red_circle: AOT compilation
+* :red_circle: reduce build size
 * :white_check_mark: git commit hook
 * :white_check_mark: add angular i18n
 * :white_check_mark: Add Rx.js conf
