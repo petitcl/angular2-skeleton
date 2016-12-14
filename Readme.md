@@ -25,6 +25,7 @@
 * :red_circle: end to end tests
 * :red_circle: code coverage
 * :red_circle: release task
+* :red_circle: AOT compilation
 * :white_check_mark: git commit hook
 * :white_check_mark: add angular i18n
 * :white_check_mark: Add Rx.js conf
@@ -35,10 +36,10 @@
 * :white_check_mark: Configuration service
 * :red_circle: (bonus) Conf / Value annotation
 * :white_check_mark: (bonus) SkeletonModule / CommonsModule
-* :red_circle: Authorization HTTP interceptor 
+* :white_check_mark: Authorization HTTP interceptor 
 * :red_circle: Cachify Service
 * :white_check_mark: Header Module
 * :red_circle: Footer Module
-* :red_circle: Fake Login Module
+* :white_check_mark: Fake Login Module
 * :red_circle: More Documentation
 * :red_circle: More Unit tests (as an example)
