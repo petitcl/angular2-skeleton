@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Http, RequestOptionsArgs, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs/Observable";
-import * as _ from "lodash";
+import _cloneDeep = require("lodash/cloneDeep");
 
 @Injectable()
 export class ApiHttpClient {
@@ -27,7 +27,7 @@ export class ApiHttpClient {
 	}
 
 	getDefaultRequestOptions() : RequestOptionsArgs {
-		return _.cloneDeep(this.defaultOptions);
+		return _cloneDeep(this.defaultOptions);
 	}
 
 	get(url: string, options?: RequestOptionsArgs): Observable<Response> {

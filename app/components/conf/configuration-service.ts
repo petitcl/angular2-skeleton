@@ -1,4 +1,5 @@
-import * as _ from "lodash";
+import _set = require("lodash/set");
+import _get = require("lodash/get");
 
 export class ConfigurationService {
 	private conf: any;
@@ -9,7 +10,7 @@ export class ConfigurationService {
 	}
 
 	get(key: string) {
-		return _.get(this.conf, key);
+		return _get(this.conf, key);
 	}
 
 	getAsString(key: string) {
@@ -17,6 +18,6 @@ export class ConfigurationService {
 	}
 
 	set(key: string, value: any) {
-		return _.set(this.conf, key, value);
+		return _set(this.conf, key, value);
 	}
 }
