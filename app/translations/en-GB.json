@@ -4,7 +4,8 @@
     "links": {
       "home": "Home",
       "login": "Login"
-    }
+    },
+    "welcome": "Hello {{firstname}}"
   },
   "home": {
     "title": "My First Angular 2 application"

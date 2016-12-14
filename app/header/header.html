@@ -5,8 +5,13 @@
 			<ul class="nav navbar-nav">
 				<li><a routerLink="/">{{'header.links.home' | translate}}</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right" *ngIf="!profile">
 				<li><a routerLink="/login">{{'header.links.login' | translate}}</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" *ngIf="profile">
+				<li>
+					<span class="navbar-text">{{'header.welcome' | translate:profile}}</span>
+				</li>
 			</ul>
 		</div>
 	</div>
