@@ -33,7 +33,10 @@ export class ApiHttpClient {
 	}
 
 	getDefaultRequestOptions() : RequestOptionsArgs {
-		return _cloneDeep(this.defaultOptions);
+		//lodash does not handle Map / Set copy, so we got to maniually copy it
+		const ret =_cloneDeep(this.defaultOptions);
+		ret.headers = new Headers(this.defaultOptions.headers);
+		return ret;
 	}
 
 	get basePath() {
@@ -52,7 +55,7 @@ export class ApiHttpClient {
 
 	post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
 		const opt = this.processRequestOptions(url, options);
-		return this.http.post(opt.url, opt.options);
+		return this.http.post(opt.url, body, opt.options);
 	}
 
 	put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {

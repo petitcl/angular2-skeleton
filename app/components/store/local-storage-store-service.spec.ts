@@ -1,6 +1,6 @@
 import {LocalStorageStoreService} from "./local-storage-store-service";
 
-describe('my first unit test', () => {
+describe('LocalStorageStoreService', () => {
 	let store: LocalStorageStoreService;
 
 	beforeEach(() => {
