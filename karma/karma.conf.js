@@ -17,7 +17,7 @@ module.exports = config => {
 		preprocessors: {
 			'karma.entry.js': ['webpack', 'sourcemap']
 		},
-		reporters: ['dots'],
+		reporters: ['dots', 'mocha'],
 		// singleRun: true,
 		webpack: require('../webpack/webpack.test.js')("test", {}),
 		webpackServer: {

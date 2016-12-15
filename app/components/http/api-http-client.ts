@@ -16,7 +16,7 @@ export class ApiHttpClient {
 	public static readonly CONTENT_TYPE_APPLICATION_JSON: string = 'application/json';
 
 	private defaultOptions: RequestOptionsArgs = {};
-	private _basePath = "";
+	private _baseUrl = "";
 
 	constructor(private http: Http) {
 		this.addDefaultHeader(ApiHttpClient.CONTENT_TYPE_HEADER, ApiHttpClient.CONTENT_TYPE_APPLICATION_JSON);
@@ -39,13 +39,13 @@ export class ApiHttpClient {
 		return ret;
 	}
 
-	get basePath() {
-		return this._basePath;
+	get baseUrl() {
+		return this._baseUrl;
 	}
 
-	set basePath(basePath: string) {
+	set baseUrl(basePath: string) {
 		if (!basePath) basePath = "";
-		this._basePath = basePath;
+		this._baseUrl = basePath;
 	}
 
 	get(url: string, options?: RequestOptionsArgs): Observable<Response> {
@@ -85,7 +85,8 @@ export class ApiHttpClient {
 
 	protected processRequestOptions(url: string, options?: RequestOptionsArgs) : CustomRequestOptions {
 		if (!options) options = this.getDefaultRequestOptions();
-		url = this.basePath + url;
+		if (this.baseUrl[this.baseUrl.length - 1] === '/' && url[0] === '/') url = this.baseUrl + url.substring(1);
+		else url = this.baseUrl + url;
 		return { url, options };
 	}
 }
