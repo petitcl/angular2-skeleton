@@ -1,3 +1,23 @@
+#Introduction
+A simple Angular 2 starter kit, made with webpack, Sass and bootstrap. It also includes a small Angular 2 services preset (like customizable http client, conf service, lcoal store service, etc..) ready to use to build your application.
+
+#Installation
+* clone / fork the repo
+* `npm i`
+
+#Commands
+* `npm start` builds the application
+* `npm run watch` builds the application, and starts watch mode
+* `npm run tslint` runs tslint
+* `npm test` run ALL unit tests once, in PhantomJS
+* `npm tdd` run ALL unit tests once, and starts watch mode
+
+#Things to know
+* Please do not include lodash directly (ie: `import _ from 'lodash';`), as it will include all the lodash library which is huge (500+ Mb). Instead, import only the operators you need (ex: `import _map = require("lodash/map");` ).
+* Place your conf properties in the conf folder. There is one file per environment (ie: `conf/development.js`, `conf/production.js`, etc). All the variables in the `env` property will be injected in the Angular application at runtime, and will be available via `ConfigurationService`, or via the global `process.env` variable.
+* If you want to make a directive/pipe/component available in the whole project, please add it to `app/components/shared/shared-module.ts`, and make sure you import this module in all sub modules.
+* If you want to make a service/provider available in the whole project, please add it to the `app/components/core/core-module`. Make sure that this module is **only** imported in the root module; otherwise your services would be instancied multiple times which could cause weird issues.
+
 #Features TODO list
 * :white_check_mark: uglify css if not dev
 * :white_check_mark: uglify js if not dev
