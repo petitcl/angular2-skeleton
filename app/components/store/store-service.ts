@@ -1,10 +1,10 @@
-export interface StoreService {
+export abstract class StoreService {
 
-	get(key: string): any;
+	abstract get(key: string): any;
 
-	set(key: string, data?: any): void;
+	abstract set(key: string, data?: any): void;
 
-	del(key: string): void;
+	abstract del(key: string): void;
 
-	clear(): void;
+	abstract clear(): void;
 }

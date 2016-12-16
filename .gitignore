@@ -10,3 +10,4 @@ npm-debug.log
 conf/local.js
 stats.json
 coverage
+node_modules.tmp

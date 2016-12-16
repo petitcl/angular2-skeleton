@@ -115,11 +115,8 @@ module.exports = function (env, conf) {
 			new ProgressBarPlugin(),
 			new ImageMinPlugin(),
 			new LoaderOptionsPlugin({
-				debug: true,
+				debug: false,
 				options: {
-					ts: {
-						logLevel: 'warn'
-					},
 					sass: {
 						includePaths: [path.resolve(__dirname, 'app')]
 					},

@@ -12,6 +12,7 @@
       "core-js",
       "jasmine",
       "lodash"
-    ]
+    ],
+    "typingOptions": { "enableAutoDiscovery": false, "include": [], "exclude": [] }
   }
 }

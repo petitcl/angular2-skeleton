@@ -11,6 +11,8 @@ module.exports = function (env, conf) {
 	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 	const extractRootCss = new ExtractTextPlugin("styles.css");
 	const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+	// const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
@@ -58,7 +60,7 @@ module.exports = function (env, conf) {
 				},
 				{
 					test: /app\-module\.scss$/,
-					loader: extractRootCss.extract('css?sourceMap!sass?sourceMap')
+					loader: extractRootCss.extract('css-loader?sourceMap!sass-loader?sourceMap')
 				},
 				{
 					test: /\.(png|jpe?g|gif|ico|svg)$/,
@@ -113,7 +115,7 @@ module.exports = function (env, conf) {
 			]),
 			new ProgressBarPlugin(),
 			new LoaderOptionsPlugin({
-				debug: true,
+				debug: false,
 				options: {
 					ts: {
 						logLevel: 'warn'
@@ -123,7 +125,8 @@ module.exports = function (env, conf) {
 					},
 					context: '/'
 				}
-			})
+			}),
+			// new CheckerPlugin()
 		]
 	};
 };
