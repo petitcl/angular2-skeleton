@@ -27,7 +27,6 @@
     "@angular/upgrade": "~2.1.1",
     "@types/jasmine": "^2.5.38",
     "@types/lodash": "^4.14.43",
-    "angular-in-memory-web-api": "~0.1.13",
     "bootstrap-sass": "^3.3.7",
     "core-js": "^2.4.1",
     "es6-shim": "^0.35.1",
