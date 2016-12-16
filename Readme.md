@@ -46,6 +46,7 @@ A simple Angular 2 starter kit, made with webpack, Sass and bootstrap. It also i
 * :red_circle: code coverage
 * :white_circle: ~~release task~~ (use `npm version` instead)
 * :red_circle: AOT compilation
+* :red_circle: Make it angular-cli friendly
 * :red_circle: reduce build size
 * :white_check_mark: git commit hook
 * :white_check_mark: add angular i18n
