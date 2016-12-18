@@ -3,6 +3,7 @@ import {ConfigurationModule} from "../conf/configuration-module";
 import {StoreModule} from "../store/store-module";
 import {SessionService} from "../session/session-service";
 import {ApiHttpClient} from "../http/api-http-client";
+import {LoggedInGuard} from "../session/logged-in-guard";
 
 
 /**
@@ -16,7 +17,8 @@ import {ApiHttpClient} from "../http/api-http-client";
 	],
 	providers: [
 		SessionService,
-		ApiHttpClient
+		ApiHttpClient,
+		LoggedInGuard
 	]
 })
 export class CoreModule {

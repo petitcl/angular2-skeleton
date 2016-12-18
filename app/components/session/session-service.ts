@@ -37,6 +37,7 @@ export class SessionService {
 	private sessionKey = "session";
 
 	public session$: Observable<Session> = new BehaviorSubject(null);
+	public islogged$: Observable<boolean> = this.session$.map(p => !!p);
 	public login$: Observable<any> = new Subject();
 	public logout$: Observable<any> = new Subject();
 
