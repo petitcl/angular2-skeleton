@@ -62,9 +62,8 @@ export class SessionService {
 		return this.http.post("/login", credentials, options)
 			.map(res => res.json())
 			.catch(error => Observable.throw(error.json().error || 'Server error'))
-			.map(
+			.do(
 				res => {
-					// console.log(res);
 					this.openSession(res);
 					(<Subject<any>>this.login$).next();
 					return <Session>res;
@@ -74,6 +73,7 @@ export class SessionService {
 
 	logout() {
 		this.closeSession();
+		(<Subject<any>>this.logout$).next();
 	}
 
 	private openSession(session: Session) {
