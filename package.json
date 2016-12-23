@@ -5,7 +5,7 @@
     "start": "webpack",
     "watch": "webpack --watch",
     "watch:hmr": "webpack-dev-server",
-    "tslint": "tslint 'app/**/*.ts'",
+    "tslint": "tslint 'app/**/*.ts' || true",
     "test": "karma start ./karma/karma.conf.js",
     "tdd": "karma start ./karma/karma.conf.js --auto-watch",
     "postinstall": "./bin/setup-git-hooks"
@@ -37,6 +37,7 @@
     "ng2-translate": "^4.2.0",
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.0-beta.12",
+    "tslint": "^4.2.0",
     "zone.js": "^0.6.25"
   },
   "devDependencies": {

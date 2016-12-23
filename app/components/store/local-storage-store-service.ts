@@ -29,7 +29,7 @@ export class LocalStorageStoreService implements StoreService {
 
 	del(key: string) {
 		try {
-			this.window.localStorage.removeItem(key)
+			this.window.localStorage.removeItem(key);
 		} catch (e) {
 
 		}

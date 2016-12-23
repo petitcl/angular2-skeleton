@@ -5,7 +5,10 @@
     "cyclomatic-complexity": [true, 20],
     "trailing-comma": [
       true,
-      {"multiline": "never", "singleline": "never"}
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
     ],
     "no-console": [
       true,
@@ -15,6 +18,14 @@
       "time",
       "timeEnd",
       "trace"
-    ]
+    ],
+    "array-type": [true, "array"],
+    "class-name": true,
+    "prefer-const": true,
+    "semicolon": [true, "always"],
+    "no-conditional-assignment": true,
+    "label-position": true,
+    "no-shadowed-variable": true,
+    "triple-equals": [true, "allow-undefined-check", "allow-null-check"]
   }
 }

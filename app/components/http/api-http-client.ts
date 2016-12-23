@@ -4,8 +4,8 @@ import {Observable} from "rxjs/Observable";
 import _cloneDeep = require("lodash/cloneDeep");
 
 interface CustomRequestOptions {
-	url: string,
-	options: RequestOptionsArgs
+	url: string;
+	options: RequestOptionsArgs;
 }
 
 @Injectable()
@@ -33,7 +33,7 @@ export class ApiHttpClient {
 	}
 
 	getDefaultRequestOptions() : RequestOptionsArgs {
-		//lodash does not handle Map / Set copy, so we got to maniually copy it
+		//lodash does not handle Map / Set copy, so we got to manually copy it
 		const ret =_cloneDeep(this.defaultOptions);
 		ret.headers = new Headers(this.defaultOptions.headers);
 		return ret;

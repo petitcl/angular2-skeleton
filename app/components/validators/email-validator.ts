@@ -2,8 +2,6 @@ import {Directive, forwardRef} from "@angular/core";
 import {FormControl, NG_VALIDATORS, Validator} from "@angular/forms";
 
 
-
-
 @Directive({
 	selector: '[n9-email][ngModel],[n9-email][formControl]',
 	providers: [
@@ -15,7 +13,7 @@ export class EmailValidator implements Validator {
 	}
 
 	static validEmail(c: FormControl) {
-		let emailRegexp = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+		const emailRegexp = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
 		return emailRegexp.test(c.value) ? null : { n9Email: { valid: false } };
 	}

@@ -3,7 +3,7 @@ import {MockConnection} from "@angular/http/testing";
 
 export function fakeResponse(conn, body?) {
 	if (!body) body = {};
-	conn.mockRespond(new Response(new ResponseOptions({ body })))
+	conn.mockRespond(new Response(new ResponseOptions({ body })));
 }
 
 export function expectUrl(conn, url) {
