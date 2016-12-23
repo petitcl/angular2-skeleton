@@ -4,6 +4,7 @@
   "scripts": {
     "start": "webpack",
     "watch": "webpack --watch",
+    "watch:hmr": "webpack-dev-server",
     "tslint": "tslint 'app/**/*.ts'",
     "test": "karma start ./karma/karma.conf.js",
     "tdd": "karma start ./karma/karma.conf.js --auto-watch",
@@ -72,6 +73,7 @@
     "tslint-loader": "^3.3.0",
     "typescript": "^2.0.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   }
 }

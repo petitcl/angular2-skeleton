@@ -2,6 +2,7 @@
 
 module.exports = function (env, conf) {
 	const HtmlWebpackPlugin = require('html-webpack-plugin');
+	const deepExtend = require('deep-extend');
 	const path = require('path');
 	const webpack = require('webpack');
 	const DefinePlugin = require('webpack/lib/DefinePlugin');
@@ -9,6 +10,7 @@ module.exports = function (env, conf) {
 	const CopyWebpackPlugin = require('copy-webpack-plugin');
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
 	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+	const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 	const extractRootCss = new ExtractTextPlugin("styles.css");
 
 	const rootDir = path.resolve(__dirname, '..');
@@ -107,12 +109,25 @@ module.exports = function (env, conf) {
 			new CopyWebpackPlugin([
 				{ context: app, from: "translations", to: "translations" }
 			]),
-			new ProgressBarPlugin()
+			new ProgressBarPlugin(),
+			new HotModuleReplacementPlugin()
 		],
 		resolve: {
 			extensions: ['', '.js', '.ts']
 		},
-		'ts': {
+		/**
+		 * merge with conf from env files
+		* */
+		devServer: deepExtend(
+			{},
+			{
+				inline: true,
+				noInfo: true,
+				historyApiFallback: true
+			},
+			conf.webpackDevServer || {}
+		),
+		ts: {
 			logLevel: 'warn'
 		}
 	};
