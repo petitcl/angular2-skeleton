@@ -21,6 +21,18 @@ A simple Angular 2 starter kit, made with webpack, Sass and bootstrap. It also i
 * If you want to make a service/provider available in the whole project, please add it to the `app/components/core/core-module`. Make sure that this module is **only** imported in the root module; otherwise your services would be instantiated multiple times which could cause weird issues.
 
 #Features TODO list
+* :red_circle: js hot reload
+* :red_circle: end to end tests
+* :red_circle: code coverage
+* :red_circle: base webpack config file
+* :red_circle: AOT compilation
+* :red_circle: Make it angular-cli friendly
+* :red_circle: reduce build size
+* :red_circle: (bonus) Conf / Value annotation
+* :red_circle: Cachify Service
+* :red_circle: Footer Module
+* :red_circle: More Documentation
+* :red_circle: More Unit tests (as an example)
 * :white_check_mark: uglify css if not dev
 * :white_check_mark: uglify js if not dev
 * :white_check_mark: imagemin if not dev
@@ -36,20 +48,13 @@ A simple Angular 2 starter kit, made with webpack, Sass and bootstrap. It also i
 * :white_check_mark: inline HTML partials
 * :white_check_mark: css livereload
 * :white_check_mark: js livereload
-* :red_circle: js hot reload
 * :white_check_mark: watch
 * :white_check_mark: add bootstrap
 * :white_check_mark: add typings
 * :white_check_mark: add mixgen
 * :white_check_mark: add font awesome
-* :red_circle: base webpack config file
 * :white_check_mark: unit tests
-* :red_circle: end to end tests
-* :red_circle: code coverage
 * :white_circle: ~~release task~~ (use `npm version` instead)
-* :red_circle: AOT compilation
-* :red_circle: Make it angular-cli friendly
-* :red_circle: reduce build size
 * :white_check_mark: git commit hook
 * :white_check_mark: add angular i18n
 * :white_check_mark: Add Rx.js conf
@@ -58,12 +63,7 @@ A simple Angular 2 starter kit, made with webpack, Sass and bootstrap. It also i
 * :white_check_mark: Store service
 * :white_check_mark: Session service
 * :white_check_mark: Configuration service
-* :red_circle: (bonus) Conf / Value annotation
 * :white_check_mark: (bonus) SkeletonModule / CommonsModule
 * :white_check_mark: Authorization HTTP interceptor 
-* :red_circle: Cachify Service
 * :white_check_mark: Header Module
-* :red_circle: Footer Module
 * :white_check_mark: Fake Login Module
-* :red_circle: More Documentation
-* :red_circle: More Unit tests (as an example)
