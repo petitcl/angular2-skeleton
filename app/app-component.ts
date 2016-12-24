@@ -5,7 +5,7 @@ import {ConfigurationService} from "./components/conf/configuration-service";
 import {ApiHttpClient} from "./components/http/api-http-client";
 
 @Component({
-	selector: 'my-app',
+	selector: 'n9-app',
 	templateUrl: './app.html'
 })
 export class AppComponent {

@@ -5,10 +5,10 @@ import {FormControl, NG_VALIDATORS, Validator} from "@angular/forms";
 @Directive({
 	selector: '[n9-email][ngModel],[n9-email][formControl]',
 	providers: [
-		{ provide: NG_VALIDATORS, useExisting: forwardRef(() => EmailValidator), multi: true }
+		{ provide: NG_VALIDATORS, useExisting: forwardRef(() => EmailValidatorDirective), multi: true }
 	]
 })
-export class EmailValidator implements Validator {
+export class EmailValidatorDirective implements Validator {
 	constructor() {
 	}
 
@@ -19,6 +19,6 @@ export class EmailValidator implements Validator {
 	}
 
 	validate(c: FormControl) {
-		return EmailValidator.validEmail(c);
+		return EmailValidatorDirective.validEmail(c);
 	}
 }

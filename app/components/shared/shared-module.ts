@@ -1,5 +1,5 @@
 import {NgModule, ModuleWithProviders} from "@angular/core";
-import {EmailValidator} from "../validators/email-validator";
+import {EmailValidatorDirective} from "../validators/email-validator.directive";
 import {TranslateModule} from "ng2-translate";
 import {ReactiveFormsModule} from "@angular/forms";
 
@@ -13,12 +13,12 @@ import {ReactiveFormsModule} from "@angular/forms";
 		TranslateModule
 	],
 	declarations: [
-		EmailValidator
+		EmailValidatorDirective
 	],
 	exports: [
 		ReactiveFormsModule,
 		TranslateModule,
-		EmailValidator
+		EmailValidatorDirective
 	]
 })
 export class SharedModule {
