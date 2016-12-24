@@ -1,7 +1,7 @@
 {
   "name": "angular2-skeleton",
   "description": "A simple Angular 2 starter kit, made with webpack, Sass and bootstrap",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "scripts": {
     "start": "webpack",
     "watch": "webpack --watch",
