@@ -1,5 +1,5 @@
 import {NgModule, ModuleWithProviders} from "@angular/core";
-import {ConfigurationService} from "./configuration-service";
+import {ConfigurationService} from "./configuration.service";
 
 @NgModule({
 	providers: [

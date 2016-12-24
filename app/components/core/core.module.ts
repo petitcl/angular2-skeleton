@@ -1,9 +1,9 @@
 import {NgModule, SkipSelf, Optional} from "@angular/core";
-import {ConfigurationModule} from "../conf/configuration-module";
-import {StoreModule} from "../store/store-module";
-import {SessionService} from "../session/session-service";
-import {ApiHttpClient} from "../http/api-http-client";
-import {LoggedInGuard} from "../session/logged-in-guard";
+import {ConfigurationModule} from "../conf/configuration.module";
+import {StoreModule} from "../store/store.module";
+import {SessionService} from "../session/session.service";
+import {ApiHttpClient} from "../http/api-http-client.service";
+import {LoggedInGuard} from "../session/logged-in.guard";
 
 
 /**

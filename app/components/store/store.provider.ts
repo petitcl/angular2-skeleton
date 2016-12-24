@@ -1,6 +1,6 @@
-import {StoreService} from "./store-service";
-import {LocalStorageStoreService} from "./local-storage-store-service";
-import {InMemoryStoreService} from "./in-memory-store-service";
+import {StoreService} from "./store.service";
+import {LocalStorageStoreService} from "./local-storage-store.service";
+import {InMemoryStoreService} from "./in-memory-store.service";
 
 const storeFactory = (): StoreService => {
 	if (window && window.localStorage) {

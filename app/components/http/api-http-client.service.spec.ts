@@ -1,8 +1,8 @@
 import {TestBed, inject, async} from "@angular/core/testing";
-import {ApiHttpClient} from "./api-http-client";
+import {ApiHttpClient} from "./api-http-client.service";
 import {HttpModule, Http, BaseRequestOptions} from "@angular/http";
 import {MockBackend, MockConnection} from "@angular/http/testing";
-import {fakeResponse, expectUrl, expectHeader} from "../test/http-test-utils";
+import {fakeResponse, expectUrl, expectHeader} from "../test/http-test.utils";
 
 describe('ApiHttpClient', () => {
 

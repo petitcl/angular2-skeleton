@@ -1,14 +1,14 @@
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EmailValidatorDirective} from "../components/validators/email-validator.directive";
-import {SessionService, Credentials} from "../components/session/session-service";
+import {SessionService, Credentials} from "../components/session/session.service";
 import {Router} from "@angular/router";
 
 @Component({
 	selector: 'n9-login',
-	templateUrl: './login.html',
+	templateUrl: 'login.component.html',
 	//careful: we do not have sourcemaps when using styleUrls (yet)
-	styleUrls: ['./login-module.scss']
+	styleUrls: ['login.component.scss']
 })
 export class LoginComponent implements OnInit {
 

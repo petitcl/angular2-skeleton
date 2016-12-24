@@ -1,5 +1,5 @@
 import {NgModule, ValueProvider} from "@angular/core";
-import {StoreProvider} from "./store-provider";
+import {StoreProvider} from "./store.provider";
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,

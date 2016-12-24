@@ -1,11 +1,11 @@
 import {Injectable} from "@angular/core";
-import {StoreService} from "../store/store-service";
+import {StoreService} from "../store/store.service";
 import {Headers} from "@angular/http";
-import {ConfigurationService} from "../conf/configuration-service";
+import {ConfigurationService} from "../conf/configuration.service";
 import {Observable} from "rxjs/Observable";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Subject} from "rxjs/Subject";
-import {ApiHttpClient} from "../http/api-http-client";
+import {ApiHttpClient} from "../http/api-http-client.service";
 
 export interface Address {
 	line: string;

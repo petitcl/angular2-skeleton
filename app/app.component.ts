@@ -1,12 +1,12 @@
 import {Component} from "@angular/core";
 import {TranslateService} from "ng2-translate";
-import {SessionService} from "./components/session/session-service";
-import {ConfigurationService} from "./components/conf/configuration-service";
-import {ApiHttpClient} from "./components/http/api-http-client";
+import {SessionService} from "./components/session/session.service";
+import {ConfigurationService} from "./components/conf/configuration.service";
+import {ApiHttpClient} from "./components/http/api-http-client.service";
 
 @Component({
 	selector: 'n9-app',
-	templateUrl: './app.html'
+	templateUrl: 'app.component.html'
 })
 export class AppComponent {
 	constructor(
