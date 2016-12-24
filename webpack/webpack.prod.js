@@ -1,5 +1,6 @@
 module.exports = function (env, conf) {
 	const HtmlWebpackPlugin = require('html-webpack-plugin');
+	const deepExtend = require('deep-extend');
 	const path = require('path');
 	const webpack = require('webpack');
 	const DefinePlugin = require('webpack/lib/DefinePlugin');
@@ -16,11 +17,11 @@ module.exports = function (env, conf) {
 	const dist = 'dist';
 
 	return {
-		debug: true,
+		debug: false,
 		entry: {
 			app: [ path.resolve(rootDir, app, 'main') ],
 			vendor: [ path.resolve(rootDir, app, 'vendor') ],
-			css: [ path.resolve(rootDir, app, 'app-module.scss')]
+			css: [ path.resolve(rootDir, app, 'app.module.scss')]
 		},
 		module: {
 			loaders: [
@@ -34,7 +35,7 @@ module.exports = function (env, conf) {
 				},
 				{
 					loaders: [
-						'ts-loader',
+						'awesome-typescript-loader',
 						'angular2-template-loader',
 						'angular2-router-loader'
 					],
@@ -47,10 +48,10 @@ module.exports = function (env, conf) {
 						'raw-loader',
 						'sass-loader'
 					],
-					exclude: /app\-module\.scss$/
+					exclude: /app\.module\.scss$/
 				},
 				{
-					test: /app\-module\.scss$/,
+					test: /app\.module\.scss$/,
 					loader: extractRootCss.extract('css!sass')
 				},
 				{
@@ -113,6 +114,18 @@ module.exports = function (env, conf) {
 		resolve: {
 			extensions: [ '', '.js', '.ts' ]
 		},
+		/**
+		 * merge with conf from env files
+		 * */
+		devServer: deepExtend(
+			{},
+			{
+				inline: true,
+				noInfo: true,
+				historyApiFallback: true
+			},
+			conf.webpackDevServer || {}
+		),
 		'ts': {
 			logLevel: 'warn'
 		},

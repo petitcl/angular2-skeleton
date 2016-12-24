@@ -25,11 +25,11 @@ module.exports = function (env, conf) {
 			],
 			loaders: [
 				{
-					loader: 'raw',
+					loader: 'raw-loader',
 					test: /\.(css|html)$/
 				},
 				{
-					loader: 'ts',
+					loader: 'awesome-typescript-loader',
 					test: /\.ts$/,
 					exclude: /node_modules/
 				},

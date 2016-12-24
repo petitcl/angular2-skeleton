@@ -23,7 +23,7 @@ module.exports = function (env, conf) {
 		entry: {
 			app: [path.resolve(rootDir, app, 'main')],
 			vendor: [path.resolve(rootDir, app, 'vendor')],
-			css: [ path.resolve(rootDir, app, 'app-module.scss')]
+			css: [ path.resolve(rootDir, app, 'app.module.scss')]
 		},
 		module: {
 			preLoaders: [
@@ -39,7 +39,7 @@ module.exports = function (env, conf) {
 				},
 				{
 					loaders: [
-						'ts-loader',
+						'awesome-typescript-loader',
 						'angular2-template-loader',
 						'angular2-router-loader'
 					],
@@ -52,10 +52,10 @@ module.exports = function (env, conf) {
 						'raw-loader',
 						'sass-loader?sourceMap'
 					],
-					exclude: /app\-module\.scss$/
+					exclude: /app\.module\.scss$/
 				},
 				{
-					test: /app\-module\.scss$/,
+					test: /app\.module\.scss$/,
 					loader: extractRootCss.extract('css?sourceMap!sass?sourceMap')
 				},
 				{
