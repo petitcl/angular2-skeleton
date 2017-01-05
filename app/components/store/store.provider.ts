@@ -15,9 +15,7 @@ const storeFactory = (): StoreService => {
 	return new InMemoryStoreService();
 };
 
-// export let StoreServiceToken = new OpaqueToken("StoreService");
-
-export let StoreProvider = {
+export const StoreProvider = {
 	provide: StoreService,
 	useFactory: storeFactory,
 	deps: []
