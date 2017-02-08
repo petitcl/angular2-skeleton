@@ -10,6 +10,7 @@ module.exports = function (env, conf) {
 	const CopyWebpackPlugin = require('copy-webpack-plugin');
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
 	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+	const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 	const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 	const extractRootCss = new ExtractTextPlugin("styles.css");
 
@@ -110,7 +111,11 @@ module.exports = function (env, conf) {
 				{ context: app, from: "translations", to: "translations" }
 			]),
 			new ProgressBarPlugin(),
-			new HotModuleReplacementPlugin()
+			new HotModuleReplacementPlugin(),
+			//prevent from importing lodash global module
+			new IgnorePlugin(/^lodash$/),
+			//prevent from importing rxjs global module
+			new IgnorePlugin(/^rxjs$/)
 		],
 		resolve: {
 			extensions: ['', '.js', '.ts']

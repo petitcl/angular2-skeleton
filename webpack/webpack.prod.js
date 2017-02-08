@@ -10,6 +10,7 @@ module.exports = function (env, conf) {
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
 	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 	const ImageMinPlugin = require('imagemin-webpack-plugin').default;
+	const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 	const extractRootCss = new ExtractTextPlugin("styles.css");
 
 	const rootDir = path.resolve(__dirname, '..');
@@ -109,7 +110,11 @@ module.exports = function (env, conf) {
 				{ context: app, from: "translations", to: "translations" }
 			]),
 			new ProgressBarPlugin(),
-			new ImageMinPlugin()
+			new ImageMinPlugin(),
+			//prevent from importing lodash global module
+			new IgnorePlugin(/^lodash$/),
+			//prevent from importing rxjs global module
+			new IgnorePlugin(/^rxjs$/)
 		],
 		resolve: {
 			extensions: [ '', '.js', '.ts' ]

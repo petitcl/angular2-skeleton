@@ -4,7 +4,8 @@ import {StoreModule} from "../store/store.module";
 import {SessionService} from "../session/session.service";
 import {ApiHttpClient} from "../http/api-http-client.service";
 import {LoggedInGuard} from "../session/logged-in.guard";
-
+import {LogService} from "../log/log.service";
+import {WindowRefService} from "../window/window-ref.service";
 
 /**
  * This is the "core" module. It aggregates all custom made services.
@@ -16,6 +17,8 @@ import {LoggedInGuard} from "../session/logged-in.guard";
 		ConfigurationModule.forRoot(process.env)
 	],
 	providers: [
+		WindowRefService,
+		LogService,
 		SessionService,
 		ApiHttpClient,
 		LoggedInGuard
