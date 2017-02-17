@@ -12,9 +12,6 @@
       "core-js",
       "jasmine",
       "lodash"
-    ],
-    "exclude": [
-      "node_modules"
     ]
   }
 }
