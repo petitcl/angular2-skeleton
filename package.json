@@ -8,6 +8,7 @@
     "watch:hmr": "webpack-dev-server",
     "tslint": "tslint 'app/**/*.ts' || true",
     "test": "karma start ./karma/karma.conf.js --single-run",
+    "test:once": "karma start ./karma/karma.conf.js --single-run",
     "tdd": "karma start ./karma/karma.conf.js --auto-watch",
     "postinstall": "./bin/setup-git-hooks"
   },

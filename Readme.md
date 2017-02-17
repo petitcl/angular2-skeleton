@@ -11,6 +11,7 @@ A simple Angular 2 starter kit, made with webpack, Sass and bootstrap. It also i
 * `npm run watch:hmr` builds the application, and starts watch mode with Hot Module Reload / Livereload. The page is available at `http://localhost:8080` by default.
 * `npm run tslint` runs tslint
 * `npm test` run ALL unit tests once, in PhantomJS
+* `npm run test:once` alias for `npm test`
 * `npm tdd` run ALL unit tests once, and starts watch mode
 
 #Things to know
