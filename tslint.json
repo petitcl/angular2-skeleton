@@ -24,7 +24,7 @@
     ],
     "array-type": [true, "array"],
     "class-name": true,
-    "prefer-const": false,//temporarly disable this rule because its broken with typescript@2.0.10; See https://github.com/palantir/tslint/issues/1936
+    "prefer-const": true,
     "semicolon": [true, "always"],
     "no-conditional-assignment": true,
     "label-position": true,
