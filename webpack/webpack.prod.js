@@ -1,41 +1,48 @@
 module.exports = function (env, conf) {
-	const HtmlWebpackPlugin = require('html-webpack-plugin');
 	const deepExtend = require('deep-extend');
+	const HtmlWebpackPlugin = require('html-webpack-plugin');
 	const path = require('path');
 	const webpack = require('webpack');
 	const DefinePlugin = require('webpack/lib/DefinePlugin');
 	const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+	const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 	const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 	const CopyWebpackPlugin = require('copy-webpack-plugin');
 	const ExtractTextPlugin = require('extract-text-webpack-plugin');
-	const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 	const ImageMinPlugin = require('imagemin-webpack-plugin').default;
-	const IgnorePlugin = require('webpack/lib/IgnorePlugin');
-	const extractRootCss = new ExtractTextPlugin("styles.css");
+	const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+	const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
 	const rootDir = path.resolve(__dirname, '..');
 	const app = 'app';
 	const dist = 'dist';
 
 	return {
-		debug: false,
 		entry: {
 			app: [ path.resolve(rootDir, app, 'main') ],
 			vendor: [ path.resolve(rootDir, app, 'vendor') ],
 			css: [ path.resolve(rootDir, app, 'app.module.scss')]
 		},
 		module: {
-			loaders: [
+			rules: [
 				{
-					loader: 'raw',
+					test: /\.ts$/,
+					enforce: 'pre',
+					loader: 'tslint-loader'
+				},
+				{
+					loader: 'raw-loader',
 					test: /\.(css)$/
 				},
 				{
-					loader: 'raw!html-minify',
+					use: [
+						'raw-loader'
+					],
+					exclude: /index\.html/,
 					test: /\.(html)$/
 				},
 				{
-					loaders: [
+					use: [
 						'awesome-typescript-loader',
 						'angular2-template-loader',
 						'angular2-router-loader'
@@ -45,7 +52,7 @@ module.exports = function (env, conf) {
 				},
 				{
 					test: /\.scss$/,
-					loaders: [
+					use: [
 						'raw-loader',
 						'sass-loader'
 					],
@@ -53,7 +60,12 @@ module.exports = function (env, conf) {
 				},
 				{
 					test: /app\.module\.scss$/,
-					loader: extractRootCss.extract('css!sass')
+					use: ExtractTextPlugin.extract({
+						use: [
+							'css-loader',
+							'sass-loader'
+						]
+					})
 				},
 				{
 					test: /\.(png|jpe?g|gif|ico)$/,
@@ -83,7 +95,9 @@ module.exports = function (env, conf) {
 		},
 		output: {
 			filename: '[name].bundle.js',
-			path: path.resolve(rootDir, dist)
+			chunkFilename: '[name].bundle.[hash].js',
+			path: path.resolve(rootDir, dist),
+			publicPath: !!conf.env.baseUrl ? conf.env.baseUrl :  undefined
 		},
 		plugins: [
 			new CommonsChunkPlugin({
@@ -94,14 +108,30 @@ module.exports = function (env, conf) {
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
 				inject: 'body',
-				template: path.resolve(rootDir, app, 'index.html')
+				template: path.resolve(rootDir, app, 'index.html'),
+				env: conf.env
 			}),
-			extractRootCss,
+			new ExtractTextPlugin({
+				filename: "styles.css",
+				disable: false,
+				allChunks: true
+			}),
+			new LoaderOptionsPlugin({
+				debug: false
+			}),
+			new ContextReplacementPlugin(
+				/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+				__dirname
+			),
 			new UglifyJsPlugin({
-				comments: false
+				comments: false,
+				sourceMap: true,
+				compress: {
+					warnings: false
+				}
 			}),
 			new DefinePlugin({
-				'process.env': JSON.stringify(conf.env || {})
+				'process.env': JSON.stringify(conf.env || {})
 			}),
 			new CopyWebpackPlugin([
 				{ context: app, from: "**/*.+(png|jpeg|jpg|gif|ico|svg)" }
@@ -109,19 +139,17 @@ module.exports = function (env, conf) {
 			new CopyWebpackPlugin([
 				{ context: app, from: "translations", to: "translations" }
 			]),
-			new ProgressBarPlugin(),
 			new ImageMinPlugin(),
+			//ignore moment locales
+			new IgnorePlugin(/^\.\/locale$/, /moment$/),
 			//prevent from importing lodash global module
 			new IgnorePlugin(/^lodash$/),
 			//prevent from importing rxjs global module
 			new IgnorePlugin(/^rxjs$/)
 		],
 		resolve: {
-			extensions: [ '', '.js', '.ts' ]
+			extensions: ['.js', '.ts', '.scss']
 		},
-		/**
-		 * merge with conf from env files
-		 * */
 		devServer: deepExtend(
 			{},
 			{
@@ -129,18 +157,7 @@ module.exports = function (env, conf) {
 				noInfo: true,
 				historyApiFallback: true
 			},
-			conf.webpackDevServer || {}
-		),
-		'ts': {
-			logLevel: 'warn'
-		},
-		'html-minify-loader': {
-			empty: true,        // KEEP empty attributes
-			comments: true,     // KEEP comments
-			quotes: true,       //KEPP quotes
-			dom: { // options of !(htmlparser2)[https://github.com/fb55/htmlparser2]
-				lowerCaseAttributeNames: false, // do not call .toLowerCase for each attribute name (Angular2 use camelCase attributes)
-			}
-		}
+			conf.webpackDevServer || {}
+		)
 	};
 };
